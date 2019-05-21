@@ -2,14 +2,12 @@ import React from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { createCard } from '../../actions';
+import Header from '../../components/Header';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Trapper Keeper</h1>
-        <h2>Notebook</h2>
-      </header>
+      <Header />
     </div>
   );
 }
