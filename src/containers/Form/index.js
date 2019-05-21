@@ -19,9 +19,12 @@ class Form extends Component {
     return (
       <form className='Form'>
         <h3>Note Form</h3>
+        <div className='item'>
+          <img className='icon' src={add} alt='Add Item' />
+          <div className='item-text' contentEditable ></div>
+        </div>
         <img src={box} alt='Unchecked checkbox' />
         <img src={checkedBox} alt='Checked checkbox' />
-        <img src={add} alt='Add Item' />
         <img src={clear} alt='Remove Item' />
         <img src={trash} alt='Delete Card' />
         <img src={trashOutline} alt='Delete Card' />
