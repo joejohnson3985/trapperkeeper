@@ -25,3 +25,5 @@ Communicate through slack/texting. Stay after for the first few days of project 
 ## Scheduling:
 - Joe: Unavailible tuesdays from 5-7
 
+## Conflict Resolution: 
+Open and honest. Be transparent and prompt with communication.
