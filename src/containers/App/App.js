@@ -6,11 +6,9 @@ import { createCard } from '../../actions';
 import fetchCards from '../../thunks/fetchCards';
 import Header from '../../components/Header';
 import Form from '../Form';
+import CardContainer from '../CardContainer'
 
 class App extends Component {
-  constructor() {
-    super();
-  }
 
   componentDidMount = () => {
     this.props.fetchCards('http://localhost:3000/api/v1/cards');
@@ -20,8 +18,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+
         <NavLink to='/new-note' className='nav'>Create Card</NavLink>
         <Route exact path='/new-note' component={Form} />
+        <CardContainer />
+
       </div>
     ); 
   }
