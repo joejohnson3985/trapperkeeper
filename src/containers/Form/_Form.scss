@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+.Form {
+  margin: auto;
+  display: block;
+  width: 50%;
+  border: 1px solid #BBBBBB;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.20);
+
+  .FormItem {
+    position: relative;
+  }
+
+  .item-text {
+    padding: 5px 45px 5px 53px;
+    margin: 0;
+    border: 0;
+    font-weight: bold;
+    width: 100%;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+
+    &:focus {
+      border-top: 1px solid #BBBBBB;
+      border-bottom: 1px solid #BBBBBB;
+      outline: none;
+    }
+  }
+
+  .clear {
+    position: absolute;
+    top: 4px;
+    right: 12px;
+  }
+
+  .add, .check-box {
+    position: absolute;
+    top: 4px;
+    left: 24px;
+  }
+}
+
+.icon {
+  width: 18px;
+}
