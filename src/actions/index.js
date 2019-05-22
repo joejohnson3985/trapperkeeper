@@ -1,5 +1,5 @@
-export const setNotes = (notes) => ({
-  type: 'SET_NOTES',
+export const setCards = (cards) => ({
+  type: 'SET_CARDS',
   notes
 })
 
