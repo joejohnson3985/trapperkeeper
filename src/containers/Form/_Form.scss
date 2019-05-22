@@ -10,7 +10,7 @@
   border-radius: 8px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.20);
 
-  .item {
+  .FormItem {
     position: relative;
   }
 
@@ -36,7 +36,7 @@
     right: 12px;
   }
 
-  .add {
+  .add, .check-box {
     position: absolute;
     top: 4px;
     left: 24px;
