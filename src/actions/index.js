@@ -1,4 +1,9 @@
-export const createCard = (info) => ({
-    type: 'CREATE_CARD',
-    info
+export const setCards = (cards) => ({
+  type: 'SET_CARDS',
+  cards
+})
+
+export const createCard = (card) => ({
+  type: 'CREATE_CARD',
+  card
 })

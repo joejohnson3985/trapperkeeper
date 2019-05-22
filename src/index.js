@@ -5,17 +5,18 @@ import './index.css';
 import rootReducer from './reducers'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer, composeWithDevTools())
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 const router = (
-    <BrowserRouter>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </BrowserRouter>
+  <BrowserRouter>
+      <Provider store={store}>
+          <App />
+      </Provider>
+  </BrowserRouter>
 )
 
 ReactDOM.render(router, document.getElementById('root'));
