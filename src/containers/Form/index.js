@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './_Form.scss';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import FormItem from '../FormItem';
 import trash from '../../media/icons/delete.svg';
@@ -45,7 +46,8 @@ class Form extends Component {
         {items}
         <img src={trash} alt='Delete Card' />
         <img src={trashOutline} alt='Delete Card' />
-        <input type='submit' value='Save' />
+        <Link to='/' className='save-button'>Save Button</Link>
+        {/* <input type='submit' value='Save' /> */}
       </form>
     );  
   }

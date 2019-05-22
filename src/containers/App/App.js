@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { NavLink, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createCard } from '../../actions';
 import fetchCards from '../../thunks/fetchCards';
@@ -19,7 +20,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Form />
+        <NavLink to='/new-note' className='nav'>Create Card</NavLink>
+        <Route exact path='/new-note' component={Form} />
       </div>
     ); 
   }
