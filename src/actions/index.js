@@ -1,6 +1,6 @@
 export const setCards = (cards) => ({
   type: 'SET_CARDS',
-  notes
+  cards
 })
 
 export const createCard = (card) => ({
