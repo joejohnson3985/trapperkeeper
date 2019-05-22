@@ -17,23 +17,32 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
     const title = e.target.querySelector('.title') 
     let items = Array.from(e.target.querySelectorAll('.item-text'));
     items = items.map(item => {
       return {value: item.value, checked: item.getAttribute('checked')};
     });
     const newCard = {title, list: items};
-    this.props.createCard(newCard)
+    this.props.createCard(newCard);
+  }
+
+  addFormItem = (item) => {
+    const list = [...this.state.list, item];
+    this.setState({list});
   }
 
   render() {
+    let items;
+    if (this.state.list.length) {
+      items = this.state.list.map(item => {
+        return <FormItem addFormItem={this.addFormItem} />;
+      });
+    }
     return (
       <form onSubmit={this.handleSubmit} className='Form'>
         <h3 className='title'>Note Form</h3>
-        <FormItem />
-        <FormItem />
-        <FormItem />
+        <FormItem addFormItem={this.addFormItem} />
+        {items}
         <img src={trash} alt='Delete Card' />
         <img src={trashOutline} alt='Delete Card' />
         <input type='submit' value='Save' />

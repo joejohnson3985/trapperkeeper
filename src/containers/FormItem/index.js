@@ -9,6 +9,7 @@ class FormItem extends Component {
     super();
 
     this.state = {
+      empty: true,
       value: '',
       checked: false
     }
@@ -16,7 +17,12 @@ class FormItem extends Component {
 
   handleChange = (e) => {
     const { value } = e.target;
-    this.setState({ value });
+    if (this.state.empty) {
+      this.setState({ value, empty: false })
+      this.props.addFormItem({value, checked: this.state.checked});
+    } else {
+      this.setState({ value });
+    }
   }
 
   toggleCheckBox = (e) => {
