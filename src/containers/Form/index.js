@@ -21,7 +21,7 @@ class Form extends Component {
         <h3>Note Form</h3>
         <div className='item'>
           <img className='icon' src={add} alt='Add Item' />
-          <div className='item-text' contentEditable ></div>
+          <input type='text' placeHolder='List item' className='item-text' contentEditable />
         </div>
         <img src={box} alt='Unchecked checkbox' />
         <img src={checkedBox} alt='Checked checkbox' />
