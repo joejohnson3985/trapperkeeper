@@ -3,7 +3,7 @@ export const setCards = (cards) => ({
   notes
 })
 
-export const createCard = (info) => ({
+export const createCard = (card) => ({
   type: 'CREATE_CARD',
-  info
+  card
 })
