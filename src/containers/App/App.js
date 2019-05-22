@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.props.fetchCards('http://localhost:3000/api/v1/notes');
+    this.props.fetchCards('http://localhost:3000/api/v1/cards');
   }
 
   render() {
