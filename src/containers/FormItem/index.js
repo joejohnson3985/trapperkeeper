@@ -32,7 +32,8 @@ class FormItem extends Component {
 
   render() {
     const {checked, value} = this.state;
-    const boxIcon = <img 
+    const boxIcon = 
+    <img 
       onClick={this.toggleCheckBox} 
       className='icon check-box' 
       role='checkbox' 
