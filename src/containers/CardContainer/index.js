@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Card from '../Card'
 import './CardContainer.scss'
+import CreateNew from '../../media/Images/create-new.svg'
+import { NavLink } from 'react-router-dom';
 
 class CardContainer extends Component {
 
@@ -11,6 +13,9 @@ class CardContainer extends Component {
     return (
                                     
       <div className='card-container'>
+        <NavLink to='/new-note' className='create-card-btn'>
+          <img src={CreateNew} className='createNew'/>
+        </NavLink>
         {displayCards}
       </div>
     )

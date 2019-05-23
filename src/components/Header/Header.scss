@@ -18,22 +18,3 @@
 .logo {
   height: 80%;
 }
-
-.nav {
-  height: 80px;
-  width: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid white;
-  border-radius: 50%;
-
-  &:hover {
-    opacity: .6
-
-  }
-}
-
-.createNew {
-  height: 50%;
-}
