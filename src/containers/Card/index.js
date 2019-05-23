@@ -23,7 +23,7 @@ class Card extends Component {
 
   render() {
     return(
-      <div className='temp-card'>
+      <div className='card'>
         <h1>{this.props.name}</h1>
         <ul>
           {this.displayItems()}

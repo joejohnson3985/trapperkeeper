@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import { NavLink, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createCard } from '../../actions';
