@@ -52,7 +52,7 @@ class FormItem extends Component {
           onChange={this.handleChange}
           placeholder='List item'
           value={value}
-          contentEditable 
+          contentEditable={true}
         />
         <img className='icon clear' src={clear} alt='Clear item' />
       </div>

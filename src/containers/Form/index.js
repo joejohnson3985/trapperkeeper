@@ -12,6 +12,7 @@ class Form extends Component {
   constructor() {
     super();
     this.state = {
+      name: '',
       list: []
     }
   }
@@ -25,6 +26,16 @@ class Form extends Component {
     });
     const newCard = {title, list: items};
     this.props.createCard(newCard);
+    fetch('http://localhost:3000/api/v1/cards', {
+      method: 'POST',
+      body: JSON.stringify(this.state),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(result => this.props.createCard(result))
+    this.setState({name: ''})
   }
 
   addFormItem = (item) => {
@@ -32,24 +43,32 @@ class Form extends Component {
     this.setState({list});
   }
 
+  handleChange = (e) => {
+    const { name, value } = e.target
+    this.setState({[name]: value})
+  }
+
   render() {
     let items;
     if (this.state.list.length) {
       items = this.state.list.map(item => {
-        return <FormItem addFormItem={this.addFormItem} />;
+        return <FormItem addFormItem={this.addFormItem} 
+                         list={this.state.list}/>;
       });
     }
     return (
       <div className='overlay'>
-        <form onSubmit={this.handleSubmit} className='Form'>
-          <h3 className='title'>Note Form</h3>
-          <FormItem addFormItem={this.addFormItem} />
-          {items}
-          <img src={trash} alt='Delete Card' />
-          <img src={trashOutline} alt='Delete Card' />
-          <Link to='/' className='save-button'>Save Button</Link>
-          {/* <input type='submit' value='Save' /> */}
-        </form>
+      <form onSubmit={this.handleSubmit} className='Form'>
+        <input type='text'
+               placeholder='Add Title'
+               id='new-title-input'
+               name='name'
+               value={this.state.title}
+               onChange={this.handleChange}/>
+        <FormItem addFormItem={this.addFormItem} />
+        {items}
+        <Link onSubmit={this.handleSubmit} to='/' className='save-button'>Save Button</Link>
+      </form>
       </div>
     );  
   }

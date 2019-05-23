@@ -5,17 +5,14 @@ import './CardContainer.scss'
 
 class CardContainer extends Component {
 
-  displayCards = () => {
-    const { cards } = this.props 
-    return cards.map(card => <Card {...card} key={card.id}/>)
-  }
-
   render() {
+    const { cards } = this.props 
+    const displayCards =  cards.map(card => <Card {...card} key={card.id}/>)
     return (
+                                    
       <div className='card-container'>
-      {this.displayCards()}
+        {displayCards}
       </div>
-
     )
   }
 }
