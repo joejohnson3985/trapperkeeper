@@ -40,15 +40,17 @@ class Form extends Component {
       });
     }
     return (
-      <form onSubmit={this.handleSubmit} className='Form'>
-        <h3 className='title'>Note Form</h3>
-        <FormItem addFormItem={this.addFormItem} />
-        {items}
-        <img src={trash} alt='Delete Card' />
-        <img src={trashOutline} alt='Delete Card' />
-        <Link to='/' className='save-button'>Save Button</Link>
-        {/* <input type='submit' value='Save' /> */}
-      </form>
+      <div className='overlay'>
+        <form onSubmit={this.handleSubmit} className='Form'>
+          <h3 className='title'>Note Form</h3>
+          <FormItem addFormItem={this.addFormItem} />
+          {items}
+          <img src={trash} alt='Delete Card' />
+          <img src={trashOutline} alt='Delete Card' />
+          <Link to='/' className='save-button'>Save Button</Link>
+          {/* <input type='submit' value='Save' /> */}
+        </form>
+      </div>
     );  
   }
 }

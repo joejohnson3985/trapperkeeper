@@ -17,11 +17,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-
         <Route exact path='/new-note' component={Form} />
+        <Header />
         <CardContainer />
-
       </div>
     ); 
   }
