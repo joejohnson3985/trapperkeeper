@@ -18,7 +18,6 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-
         <NavLink to='/new-note' className='nav'>Create Card</NavLink>
         <Route exact path='/new-note' component={Form} />
         <CardContainer />
