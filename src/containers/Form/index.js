@@ -57,6 +57,7 @@ class Form extends Component {
       });
     }
     return (
+      <div className='overlay'>
       <form onSubmit={this.handleSubmit} className='Form'>
         <input type='text'
                placeholder='Add Title'
@@ -68,6 +69,7 @@ class Form extends Component {
         {items}
         <Link onSubmit={this.handleSubmit} to='/' className='save-button'>Save Button</Link>
       </form>
+      </div>
     );  
   }
 }

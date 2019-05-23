@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Card from '../Card'
+import './CardContainer.scss'
 
 class CardContainer extends Component {
 
@@ -8,7 +9,8 @@ class CardContainer extends Component {
     const { cards } = this.props 
     const displayCards =  cards.map(card => <Card {...card} key={card.id}/>)
     return (
-      <div>
+                                    
+      <div className='card-container'>
         {displayCards}
       </div>
     )

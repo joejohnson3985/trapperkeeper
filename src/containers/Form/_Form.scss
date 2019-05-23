@@ -2,8 +2,19 @@
   box-sizing: border-box;
 }
 
+.overlay {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  justify-content: center;
+  background-color: rgba(0,0,0,0.4);
+}
+
 .Form {
-  margin: auto;
+  background-color: white;
+  padding: 45px;
   display: block;
   width: 50%;
   border: 1px solid #BBBBBB;

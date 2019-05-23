@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import { NavLink, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createCard } from '../../actions';
@@ -21,7 +21,6 @@ class App extends Component {
         <NavLink to='/new-note' className='nav'>Create Card</NavLink>
         <Route exact path='/new-note' component={Form} />
         <CardContainer />
-
       </div>
     ); 
   }
