@@ -26,8 +26,7 @@ class Form extends Component {
     items = items.map(item => {
       return {value: item.value, checked: item.getAttribute('checked')};
     });
-    fetcherPoster(this.state)
-      .then(result => this.props.createCard(result))
+    fetcherPoster(this.state).then(result => this.props.createCard(result))
     this.setState({name: ''})
   }
 
