@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Card from '../Card'
+import './CardContainer.scss'
 
 class CardContainer extends Component {
 
@@ -11,7 +12,7 @@ class CardContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className='card-container'>
       {this.displayCards()}
       </div>
 
