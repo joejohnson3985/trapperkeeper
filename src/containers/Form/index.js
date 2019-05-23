@@ -19,6 +19,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log('posting')
     const title = e.target.querySelector('.title') 
     let items = Array.from(e.target.querySelectorAll('.item-text'));
     items = items.map(item => {
