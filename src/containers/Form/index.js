@@ -3,9 +3,10 @@ import './_Form.scss';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import FormItem from '../FormItem';
-import trash from '../../media/icons/delete.svg';
-import trashOutline from '../../media/icons/delete_outline.svg';
+// import trash from '../../media/icons/delete.svg';
+// import trashOutline from '../../media/icons/delete_outline.svg';
 import { createCard } from '../../actions';
+import { fetcherPoster } from '../../fetches/fetcher'
 
 
 class Form extends Component {
@@ -24,16 +25,7 @@ class Form extends Component {
     items = items.map(item => {
       return {value: item.value, checked: item.getAttribute('checked')};
     });
-    const newCard = {title, list: items};
-    this.props.createCard(newCard);
-    fetch('http://localhost:3000/api/v1/cards', {
-      method: 'POST',
-      body: JSON.stringify(this.state),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => response.json())
+    fetcherPoster(this.state)
       .then(result => this.props.createCard(result))
     this.setState({name: ''})
   }
@@ -67,7 +59,8 @@ class Form extends Component {
                onChange={this.handleChange}/>
         <FormItem addFormItem={this.addFormItem} />
         {items}
-        <Link onSubmit={this.handleSubmit} to='/' className='save-button'>Save Button</Link>
+        <button onSubmit={this.handleSubmit}>Save Card</button>
+        <Link to='/' className='home-button'>Home</Link>
       </form>
       </div>
     );  
