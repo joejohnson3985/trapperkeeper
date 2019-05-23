@@ -1,0 +1,39 @@
+@import '../../Utilities/_Variables.scss';
+
+.header {
+  width: 100%;
+  background: $primary-color;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+
+  & h1 {
+    margin: 0;
+    color: $secondary-color;
+  }
+}
+
+.logo {
+  height: 80%;
+}
+
+.nav {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid white;
+  border-radius: 50%;
+
+  &:hover {
+    opacity: .6
+
+  }
+}
+
+.createNew {
+  height: 50%;
+}
