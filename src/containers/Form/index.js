@@ -18,6 +18,14 @@ class Form extends Component {
     }
   }
 
+  componentDidMount() {
+    this.populateForm()
+  }
+
+  populateForm = () => {
+    this.setState({ name: 'Bitch' })
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     console.log('posting')
@@ -37,6 +45,7 @@ class Form extends Component {
   }
 
   handleChange = (e) => {
+    console.log(e.target.value)
     const { name, value } = e.target
     this.setState({[name]: value})
   }
@@ -51,13 +60,15 @@ class Form extends Component {
     }
     return (
       <div className='overlay'>
-      <form onSubmit={this.handleSubmit} className='Form'>
-        <input type='text'
-               placeholder='Add Title'
-               id='new-title-input'
-               name='name'
-               value={this.state.title}
-               onChange={this.handleChange}/>
+        <form onSubmit={this.handleSubmit} className='Form'>
+          <input 
+            type='text'
+            placeholder='Add Title'
+            id='new-title-input'
+            name='name'
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
         <FormItem addFormItem={this.addFormItem} />
         {items}
         <button onSubmit={this.handleSubmit}>Save Card</button>

@@ -18,6 +18,7 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/new-note' component={Form} />
+        <Route path='/notes/' component={Form} />
         <Header />
         <CardContainer />
       </div>
