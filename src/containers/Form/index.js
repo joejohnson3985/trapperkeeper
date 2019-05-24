@@ -3,6 +3,7 @@ import './_Form.scss';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import FormItem from '../FormItem';
+import { setCurrentCard } from '../../actions';
 // import trash from '../../media/icons/delete.svg';
 // import trashOutline from '../../media/icons/delete_outline.svg';
 import { createCard } from '../../actions';
@@ -23,7 +24,7 @@ class Form extends Component {
   }
 
   populateForm = () => {
-    if(this.props.currentCard) {
+    if(this.props.currentCard.name) {
       const {name, list} = this.props.currentCard
       this.setState({ name: name, list: list })
     } 
@@ -50,6 +51,10 @@ class Form extends Component {
     this.setState({[name]: value})
   }
 
+  clearCurrent = () => {
+    this.props.setCard({})
+  }
+
   render() {
     let items;
     if (this.state.list.length) {
@@ -71,7 +76,7 @@ class Form extends Component {
         <FormItem addFormItem={this.addFormItem} />
         {items}
         <button onSubmit={this.handleSubmit}>Save Card</button>
-        <Link to='/' className='home-button'>Home</Link>
+        <Link to='/' onClick={this.clearCurrent} className='home-button'>Home</Link>
       </form>
       </div>
     );  
@@ -83,6 +88,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  setCard: (card) => dispatch(setCurrentCard(card)),
   createCard: (card) => dispatch(createCard(card))
 });
 
