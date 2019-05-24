@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import FormItem from '../FormItem';
 import { setCurrentCard } from '../../actions';
-// import trash from '../../media/icons/delete.svg';
-// import trashOutline from '../../media/icons/delete_outline.svg';
 import { createCard } from '../../actions';
 import { fetcherPoster } from '../../fetches/fetcher'
 
@@ -50,16 +48,18 @@ class Form extends Component {
     this.props.setCard({})
   }
 
-  render() {
+  displayExisitingItems = () => {
     let items;
     if (this.state.list.length) {
-      items = this.state.list.map(item => {
-        return <FormItem addFormItem={this.addFormItem} {...item} key={item.list_id}/>;
-      });
+      items = this.state.list.map(item => <FormItem addFormItem={this.addFormItem} {...item} key={item.list_id}/>);
     }
+    return <div>{items}<FormItem addFormItem={this.addFormItem}/></div>
+  }
+
+  render() {
     return (
       <div className='overlay'>
-        <form onSubmit={this.handleSubmit} className='Form'>
+        <form className='Form'>
           <input 
             type='text'
             placeholder='Add Title'
@@ -68,9 +68,7 @@ class Form extends Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
-        <FormItem addFormItem={this.addFormItem} />
-        {items}
-        <button onSubmit={this.handleSubmit}>Save Card</button>
+        {this.displayExisitingItems()}
         <Link to='/' onClick={this.clearCurrent} className='home-button'>Home</Link>
       </form>
       </div>
