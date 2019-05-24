@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createCard } from '../../actions';
 import fetchCards from '../../thunks/fetchCards';
@@ -8,6 +8,7 @@ import Header from '../../components/Header';
 import Form from '../Form';
 import CardContainer from '../CardContainer'
 import { setCurrentCard } from '../../actions';
+import notFound from '../../components/NotFound'
 
 class App extends Component {
 
@@ -31,7 +32,11 @@ class App extends Component {
           }} 
         />
         <Header />
-        <CardContainer />
+        <Switch>
+          <Route exact path='/' component={CardContainer} />
+          <Route path='' component={notFound} />
+        </Switch>
+
       </div>
     ); 
   }
