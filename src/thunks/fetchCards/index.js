@@ -8,7 +8,6 @@ const fetchCards = (url) => {
         throw Error(response.statusText)
       }
       const cards = await response.json();
-      console.log(cards);
       dispatch(setCards(cards))
     } catch (error) {
     }

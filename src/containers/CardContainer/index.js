@@ -14,7 +14,7 @@ class CardContainer extends Component {
                                     
       <div className='card-container'>
         <NavLink to='/new-note' className='create-card-btn'>
-          <img src={CreateNew} className='createNew'/>
+          <img src={CreateNew} className='createNew' alt='Create new card plus sign icon'/>
         </NavLink>
         {displayCards}
       </div>

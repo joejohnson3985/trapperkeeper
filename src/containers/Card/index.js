@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import { Link, browserHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Card.scss'
 import { setCurrentCard } from '../../actions';
 import { connect } from 'react-redux';
 
 class Card extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-
+  
   render() {
     const { id, name } = this.props.card
     let cardRoute = `/notes/${id}`

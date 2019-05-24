@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import { NavLink, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createCard } from '../../actions';
 import fetchCards from '../../thunks/fetchCards';
@@ -26,7 +26,7 @@ class App extends Component {
             console.log('No Card');  
           } else {
             this.props.setCard(card)
-            return <Form match={match}/>
+            return <Form git/>
           }
           }} 
         />
