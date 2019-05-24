@@ -41,7 +41,7 @@ class FormItem extends Component {
     if(e.key === 'Enter') {
       this.props.handleItemSubmit({ list_id: this.state.id, item: this.state.value, checked: this.state.checked });
     }
-    if(e.key === 'Enter' && !gthis.props.item) {
+    if(e.key === 'Enter' && !this.props.item) {
       this.setState({value: ''})
     }
   }
