@@ -32,11 +32,6 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const title = e.target.querySelector('.title') 
-    let items = Array.from(e.target.querySelectorAll('.item-text'));
-    items = items.map(item => {
-      return {value: item.value, checked: item.getAttribute('checked')};
-    });
     fetcherPoster(this.state).then(result => this.props.createCard(result))
     this.setState({name: ''})
   }

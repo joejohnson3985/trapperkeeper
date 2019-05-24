@@ -3,7 +3,6 @@ export const currentCardReducer = (state = {}, action) => {
     case 'SET_CURRENT_CARD':
       return action.card;
     default:
-      console.log('goodbye')
       return state
   }
 }
