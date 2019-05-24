@@ -10,7 +10,6 @@ class Card extends Component {
   }
 
   openCard = () => {
-    console.log('hello')
     this.props.setCard(this.props.card)
   }
 
@@ -20,7 +19,7 @@ class Card extends Component {
     let cardRoute = `/notes/${id}`
     return(
       <div className='card'>
-        <h1 onClick={this.openCard}>{name}</h1>
+        <Link onClick={this.openCard} to={cardRoute}>{name}</Link>
       </div>
 
     )
