@@ -13,7 +13,13 @@ describe('Actions', () => {
   });
 
   it('should create a card on type "CREATE_CARD"', () => {
-
+    const card = {}
+    const expected = {
+      type: 'CREATE_CARD',
+      card
+    }
+    const result = actions.createCard(card)
+    expect(result).toEqual(expected)
   });
 
   it('should set the current card on type "SET_CURRENT_CARD"', () => {
