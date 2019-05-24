@@ -27,4 +27,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-export default connect(null, mapDispatchToProps)(Card)git
+export default connect(null, mapDispatchToProps)(Card)
