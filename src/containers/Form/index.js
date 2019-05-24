@@ -10,7 +10,7 @@ import { createCard } from '../../actions';
 import { fetcherPoster } from '../../fetches/fetcher'
 
 
-class Form extends Component {
+export class Form extends Component {
   constructor() {
     super();
     this.state = {
@@ -78,11 +78,11 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   currentCard: state.currentCard
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setCard: (card) => dispatch(setCurrentCard(card)),
   createCard: (card) => dispatch(createCard(card))
 });
