@@ -33,7 +33,7 @@ class App extends Component {
         />
         <Header />
         <Switch>
-          <Route exact path='/' component={CardContainer} />
+          <Route path='/' component={CardContainer} />
           <Route path='' component={notFound} />
         </Switch>
 
