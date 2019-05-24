@@ -7,13 +7,13 @@ import { connect } from 'react-redux';
 class Card extends Component {
   
   render() {
-    const { id, name } = this.props.card
+    const { id, name, list } = this.props.card
     let cardRoute = `/notes/${id}`
     return(
-      <div className='card'>
-        <Link to={cardRoute}>{name}</Link>
-      </div>
-
+      <Link className='card' to={cardRoute}>
+        <h1>{name}</h1>
+        <p>items: {list.length}</p>
+      </Link>
     )
   }
 }
