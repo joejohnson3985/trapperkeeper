@@ -9,17 +9,13 @@ class Card extends Component {
     super(props);
   }
 
-  openCard = () => {
-    this.props.setCard(this.props.card)
-  }
-
 
   render() {
     const { id, name } = this.props.card
     let cardRoute = `/notes/${id}`
     return(
       <div className='card'>
-        <Link onClick={this.openCard} to={cardRoute}>{name}</Link>
+        <Link to={cardRoute}>{name}</Link>
       </div>
 
     )
@@ -31,4 +27,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-export default connect(null, mapDispatchToProps)(Card)
+export default connect(null, mapDispatchToProps)(Card)git
