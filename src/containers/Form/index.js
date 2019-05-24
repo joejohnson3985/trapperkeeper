@@ -33,9 +33,23 @@ class Form extends Component {
     fetcherPoster(this.state).then(result => this.props.createCard(result))
   }
 
+  handleItemSubmit = (item) => {
+    const itemToEdit = this.state.list.find(listItem => listItem.list_id === item.list_id)
+    const indexToEdit = this.state.list.indexOf(itemToEdit)
+    if(indexToEdit !== -1) {
+      this.updateFormItem(item, indexToEdit)
+    } else {
+      this.addFormItem(item)
+    }
+  }
+
   addFormItem = (item) => {
     const list = [...this.state.list, item];
     this.setState({list});
+  }
+
+  updateFormItem = (item, index) => {
+    this.state.list.splice(index, 1, item)
   }
 
   handleChange = (e) => {
@@ -50,9 +64,9 @@ class Form extends Component {
   displayExisitingItems = () => {
     let items;
     if (this.state.list.length) {
-      items = this.state.list.map(item => <FormItem addFormItem={this.addFormItem} {...item} key={item.list_id}/>);
+      items = this.state.list.map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>);
     }
-    return <div>{items}<FormItem addFormItem={this.addFormItem}/></div>
+    return <div>{items}<FormItem handleItemSubmit={this.handleItemSubmit}/></div>
   }
 
   render() {

@@ -38,12 +38,14 @@ class FormItem extends Component {
   }
 
   handleKeypress = (e) => {
-    const idToUse = this.props.list_id
     if(e.key === 'Enter') {
-    this.props.addFormItem({ list_id: this.state.id, item: this.state.value, checked: this.state.checked });
-    this.setState({value: ''})
+      this.props.handleItemSubmit({ list_id: this.state.id, item: this.state.value, checked: this.state.checked });
+    }
+    if(e.key === 'Enter' && !gthis.props.item) {
+      this.setState({value: ''})
     }
   }
+
   render() {
     const {checked, value} = this.state;
     const boxIcon = 
