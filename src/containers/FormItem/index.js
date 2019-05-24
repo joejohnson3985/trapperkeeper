@@ -21,8 +21,10 @@ class FormItem extends Component {
 
   populateForm = () => {
     if(this.props.item) {
-      this.setState({ value: this.props.item})
-    } 
+      this.setState({ value: this.props.item, id: this.props.list_id})
+    } else {
+      this.setState({id: Date.now()})
+    }
   }
 
   handleChange = (e) => {
@@ -36,8 +38,9 @@ class FormItem extends Component {
   }
 
   handleKeypress = (e) => {
+    const idToUse = this.props.list_id
     if(e.key === 'Enter') {
-    this.props.addFormItem({ list_id: Date.now(), item: this.state.value, checked: this.state.checked });
+    this.props.addFormItem({ list_id: this.state.id, item: this.state.value, checked: this.state.checked });
     this.setState({value: ''})
     }
   }

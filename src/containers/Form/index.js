@@ -31,7 +31,6 @@ class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     fetcherPoster(this.state).then(result => this.props.createCard(result))
-    this.setState({name: ''})
   }
 
   addFormItem = (item) => {
