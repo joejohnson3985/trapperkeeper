@@ -18,9 +18,19 @@ class Form extends Component {
     }
   }
 
+  componentDidMount() {
+    this.populateForm()
+  }
+
+  populateForm = () => {
+    if(this.props.currentCard) {
+      const {name, list} = this.props.currentCard
+      this.setState({ name: name, list: list })
+    } 
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('posting')
     const title = e.target.querySelector('.title') 
     let items = Array.from(e.target.querySelectorAll('.item-text'));
     items = items.map(item => {
@@ -44,19 +54,20 @@ class Form extends Component {
     let items;
     if (this.state.list.length) {
       items = this.state.list.map(item => {
-        return <FormItem addFormItem={this.addFormItem} 
-                         list={this.state.list}/>;
+        return <FormItem addFormItem={this.addFormItem} {...item} key={item.list_id}/>;
       });
     }
     return (
       <div className='overlay'>
-      <form onSubmit={this.handleSubmit} className='Form'>
-        <input type='text'
-               placeholder='Add Title'
-               id='new-title-input'
-               name='name'
-               value={this.state.title}
-               onChange={this.handleChange}/>
+        <form onSubmit={this.handleSubmit} className='Form'>
+          <input 
+            type='text'
+            placeholder='Add Title'
+            id='new-title-input'
+            name='name'
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
         <FormItem addFormItem={this.addFormItem} />
         {items}
         <button onSubmit={this.handleSubmit}>Save Card</button>
@@ -67,8 +78,12 @@ class Form extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  currentCard: state.currentCard
+})
+
 const mapDispatchToProps = (dispatch) => ({
   createCard: (card) => dispatch(createCard(card))
 });
 
-export default connect(null, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

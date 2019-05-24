@@ -15,6 +15,16 @@ class FormItem extends Component {
     }
   }
 
+  componentDidMount() {
+    this.populateForm()
+  }
+
+  populateForm = () => {
+    if(this.props.item) {
+      this.setState({ value: this.props.item})
+    } 
+  }
+
   handleChange = (e) => {
     const { value } = e.target;
     if (this.state.empty) {

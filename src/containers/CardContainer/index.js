@@ -9,7 +9,7 @@ class CardContainer extends Component {
 
   render() {
     const { cards } = this.props 
-    const displayCards =  cards.map(card => <Card {...card} key={card.id}/>)
+    const displayCards =  cards.map(card => <Card card={card} key={card.id}/>)
     return (
                                     
       <div className='card-container'>
