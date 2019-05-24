@@ -21,7 +21,11 @@ describe('cardReducer', () => {
   });
 
   it('Should add a card to current array inside of the store', () => {
-
+    const outcome = {id:1, name:'Chores'}
+    const initialState = []
+    const action = actions.createCard(outcome)
+    const result = cardReducer(initialState, action)
+    expect(result).toEqual([outcome])
   });
 
 })
