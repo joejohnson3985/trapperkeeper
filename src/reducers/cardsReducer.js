@@ -1,4 +1,4 @@
-export const cardReducer = (state=[], action) => {
+export const cardsReducer = (state=[], action) => {
   switch (action.type) {
     case 'SET_CARDS':
       return action.cards;
