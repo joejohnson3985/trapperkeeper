@@ -3,7 +3,6 @@ import './_Form.scss';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import FormItem from '../FormItem';
-import { setCurrentCard } from '../../actions';
 // import trash from '../../media/icons/delete.svg';
 // import trashOutline from '../../media/icons/delete_outline.svg';
 import { createCard } from '../../actions';
@@ -20,14 +19,13 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    this.populateForm()
+    const {cardData} = this.props;
+    cardData && this.populateForm(cardData);
   }
 
-  populateForm = () => {
-    if(this.props.currentCard.name) {
-      const {name, list} = this.props.currentCard
-      this.setState({ name: name, list: list })
-    } 
+  populateForm = (data) => {
+    const {name, list} = data;
+    this.setState({name, list}); 
   }
 
   handleSubmit = (e) => {
@@ -78,13 +76,8 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  currentCard: state.currentCard
-})
-
 const mapDispatchToProps = (dispatch) => ({
-  setCard: (card) => dispatch(setCurrentCard(card)),
   createCard: (card) => dispatch(createCard(card))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(null, mapDispatchToProps)(Form);
