@@ -6,7 +6,6 @@ import fetchCards from '../../thunks/fetchCards';
 import Header from '../../components/Header';
 import Form from '../Form';
 import CardContainer from '../CardContainer'
-import { setCurrentCard } from '../../actions';
 import notFound from '../../components/NotFound'
 
 class App extends Component {
@@ -21,13 +20,8 @@ class App extends Component {
         <Route exact path='/new-note' component={Form} />
         <Route path='/notes/:id' 
           render={({ match }) => {
-          const card = this.props.cards.find(card => card.id === parseInt(match.params.id));
-          if (!card) {
-            console.log('No Card');  
-          } else {
-            this.props.setCard(card)
-            return <Form git/>
-          }
+            const card = this.props.cards.find(card => card.id === parseInt(match.params.id));
+            return card ? <Form cardData={card} git/> : console.log('No Card');
           }} 
         />
         <Header />
