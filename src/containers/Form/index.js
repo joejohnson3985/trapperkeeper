@@ -3,9 +3,7 @@ import './_Form.scss';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import FormItem from '../FormItem';
-import { setCurrentCard } from '../../actions';
-import { createCard } from '../../actions';
-import { fetcherPoster } from '../../fetches/fetcher'
+import postCard from '../../thunks/postCard';
 
 
 class Form extends Component {
@@ -18,19 +16,18 @@ class Form extends Component {
   }
 
   componentDidMount() {
-    this.populateForm()
+    const {cardData} = this.props;
+    cardData && this.populateForm(cardData);
   }
 
-  populateForm = () => {
-    if(this.props.currentCard.name) {
-      const {name, list} = this.props.currentCard
-      this.setState({ name: name, list: list })
-    } 
+  populateForm = (data) => {
+    const {name, list} = data;
+    this.setState({name, list}); 
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    fetcherPoster(this.state).then(result => this.props.createCard(result))
+    this.props.postCard(this.state);
   }
 
   handleItemSubmit = (item) => {
@@ -90,13 +87,8 @@ class Form extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  currentCard: state.currentCard
-})
-
 const mapDispatchToProps = (dispatch) => ({
-  setCard: (card) => dispatch(setCurrentCard(card)),
-  createCard: (card) => dispatch(createCard(card))
+  postCard: (card) => dispatch(postCard(card))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(null, mapDispatchToProps)(Form);
