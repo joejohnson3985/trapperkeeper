@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 import FormItem from '../FormItem';
 // import trash from '../../media/icons/delete.svg';
 // import trashOutline from '../../media/icons/delete_outline.svg';
-import { createCard } from '../../actions';
-import { fetcherPoster } from '../../fetches/fetcher'
+import postCard from '../../thunks/postCard';
 
 
 class Form extends Component {
@@ -30,7 +29,7 @@ class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    fetcherPoster(this.state).then(result => this.props.createCard(result))
+    this.props.postCard(this.state);
     this.setState({name: ''})
   }
 
@@ -77,7 +76,7 @@ class Form extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  createCard: (card) => dispatch(createCard(card))
+  postCard: (card) => dispatch(postCard(card))
 });
 
 export default connect(null, mapDispatchToProps)(Form);

@@ -1,5 +1,5 @@
 import { createCard } from '../../actions';
-import { fetchData } from '../fetchData';
+import fetchData from '../fetchData';
 
 export const postCard = (state) => {
   return async (dispatch) =>  {
