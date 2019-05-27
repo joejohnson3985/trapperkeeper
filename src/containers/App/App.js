@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createCard } from '../../actions';
 import fetchCards from '../../thunks/fetchCards';
 import Header from '../../components/Header';
 import Form from '../Form';
@@ -48,7 +47,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setCard: (card) => dispatch(setCurrentCard(card)),
-  createCard: (info) => dispatch(createCard(info)),
   fetchCards: (url) => dispatch(fetchCards(url))
 });
 
