@@ -1,15 +1,13 @@
 import { setCards } from '../../actions';
+import fetchData from '../fetchData.js';
 
 const getCards = (url) => {
   return async (dispatch) =>  {
     try {
-      const response = await fetch(url)
-      if(!response.ok) {
-        throw Error(response.statusText)
-      }
-      const cards = await response.json();
+      const cards = await fetchData(url);
       dispatch(setCards(cards))
     } catch (error) {
+
     }
   }
 }
