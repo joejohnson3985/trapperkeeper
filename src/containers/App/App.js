@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import fetchCards from '../../thunks/fetchCards';
+import getCards from '../../thunks/getCards';
 import Header from '../../components/Header';
 import Form from '../Form';
 import CardContainer from '../CardContainer';
@@ -11,7 +11,7 @@ import notFound from '../../components/NotFound';
 class App extends Component {
 
   componentDidMount = () => {
-    this.props.fetchCards('http://localhost:3000/api/v1/cards');
+    this.props.getCards('http://localhost:3000/api/v1/cards');
   }
 
   render() {
@@ -40,7 +40,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCards: (url) => dispatch(fetchCards(url))
+  getCards: (url) => dispatch(getCards(url))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

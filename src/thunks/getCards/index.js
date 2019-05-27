@@ -1,6 +1,6 @@
 import { setCards } from '../../actions';
 
-const fetchCards = (url) => {
+const getCards = (url) => {
   return async (dispatch) =>  {
     try {
       const response = await fetch(url)
@@ -14,4 +14,4 @@ const fetchCards = (url) => {
   }
 }
 
-export default fetchCards;
+export default getCards;
