@@ -6,7 +6,7 @@ import getCards from '../../thunks/getCards';
 import Header from '../../components/Header';
 import Form from '../Form';
 import CardContainer from '../CardContainer';
-import notFound from '../../components/NotFound';
+import NotFound from '../../components/NotFound';
 
 class App extends Component {
 
@@ -17,19 +17,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <Route exact path='/new-note' component={Form} />
-        <Route path='/notes/:id' 
+        <Route exact path='/notes/:id' 
           render={({ match }) => {
             const card = this.props.cards.find(card => card.id === parseInt(match.params.id));
-            return card ? <Form cardData={card} git/> : console.log('No Card');
+            return card ? <Form cardData={card} git/> : <NotFound />;
           }} 
         />
-        <Header />
         <Switch>
-          <Route path='/' component={CardContainer} />
-          <Route path='' component={notFound} />
+          <Route path='/' exact component={CardContainer} />
+          <Route exact path='/notes/:id' component={CardContainer} />
+          <Route exact path='/new-note' component={CardContainer} />
+          <Route path='' component={NotFound} />
         </Switch>
-
       </div>
     ); 
   }

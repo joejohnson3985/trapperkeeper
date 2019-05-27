@@ -1,6 +1,7 @@
 @import '../../Utilities/_Variables.scss';
 
 .header {
+  position: absolute;
   width: 100%;
   background: $primary-color;
   height: 100px;
