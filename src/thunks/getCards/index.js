@@ -1,5 +1,5 @@
 import { setCards } from '../../actions';
-import fetchData from '../fetchData.js';
+import fetchData from '../fetchData';
 
 const getCards = (url) => {
   return async (dispatch) =>  {
