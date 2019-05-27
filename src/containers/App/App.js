@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import fetchCards from '../../thunks/fetchCards';
 import Header from '../../components/Header';
 import Form from '../Form';
-import CardContainer from '../CardContainer'
-import notFound from '../../components/NotFound'
+import CardContainer from '../CardContainer';
+import notFound from '../../components/NotFound';
 
 class App extends Component {
 
@@ -40,7 +40,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setCard: (card) => dispatch(setCurrentCard(card)),
   fetchCards: (url) => dispatch(fetchCards(url))
 });
 
