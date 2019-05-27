@@ -34,8 +34,9 @@ class Form extends Component {
   }
 
   handleItemSubmit = (item) => {
-    const itemToEdit = this.state.list.find(listItem => listItem.list_id === item.list_id)
-    const indexToEdit = this.state.list.indexOf(itemToEdit)
+    const { list } = this.state
+    const itemToEdit = list.find(listItem => listItem.list_id === item.list_id)
+    const indexToEdit = list.indexOf(itemToEdit)
     if(indexToEdit !== -1) {
       this.updateFormItem(item, indexToEdit)
     } else {
