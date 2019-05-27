@@ -12,7 +12,8 @@ export const postCard = (state) => {
           'Content-Type': 'application/json'
         }
       }
-      return await fetchData(url, options);
+      const newCard = await fetchData(url, options);
+      dispatch(createCard(newCard));
     } catch (error) {
 
     }
