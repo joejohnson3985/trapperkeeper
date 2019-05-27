@@ -28,7 +28,17 @@ class Form extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.postCard(this.state);
-    this.setState({name: ''})
+  }
+
+  handleItemSubmit = (item) => {
+    const { list } = this.state
+    const itemToEdit = list.find(listItem => listItem.list_id === item.list_id)
+    const indexToEdit = list.indexOf(itemToEdit)
+    if(indexToEdit !== -1) {
+      this.updateFormItem(item, indexToEdit)
+    } else {
+      this.addFormItem(item)
+    }
   }
 
   addFormItem = (item) => {
