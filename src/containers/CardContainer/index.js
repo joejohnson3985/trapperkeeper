@@ -6,6 +6,13 @@ import CreateNew from '../../media/Images/create-new.svg'
 import { NavLink } from 'react-router-dom';
 
 class CardContainer extends Component {
+  constructor() {
+    super()
+    this.state = {
+      update: false
+    }
+  }
+
 
   render() {
     const { cards } = this.props 

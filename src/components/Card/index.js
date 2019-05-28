@@ -8,6 +8,8 @@ import trash from '../../media/icons/delete_outline.svg';
 const Card = (props) => {
   const { id, name, list } = props.card
   const cardRoute = `/notes/${id}`
+  console.log(list.length)
+
   return(
     <Link className='card' to={cardRoute}>
       <h1>{name}</h1>
