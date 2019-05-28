@@ -1,23 +1,28 @@
 import getCards from './index';
-import fetchData from '../fetchData'
+import fetchData from '../fetchData';
 import * as actions from '../../actions';
-jest.mock('../fetchData')
 
 describe('putCard', () => {
   let mockUrl;
   let mockCards;
   let mockDispatch;
-  let mockFetchData;
 
   beforeEach(() => {
     mockUrl = 'www.testurl.com'
     mockCards = [{id:1, name:'bob', list:[1,2,3]}]
     mockDispatch = jest.fn()
-    mockFetchData = jest.fn().mockImplementation(() => Promise.resolve(mockCards))
-    // fetchData.get.mockResolvedValue(mockCards) 
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(mockCards)
+    }));
   })
 
-  it('should call fetchData', async () => {
+  it('should call fetch', async () => {
+    await getCards(mockUrl)(mockDispatch);
+    expect(window.fetch).toHaveBeenCalled();
+  });
+
+  it('should dispatch setCards', async () => {
     await getCards(mockUrl)(mockDispatch);
     expect(mockDispatch).toHaveBeenCalledWith(actions.setCards(mockCards));
   });
