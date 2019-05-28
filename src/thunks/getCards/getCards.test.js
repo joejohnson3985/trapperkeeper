@@ -11,7 +11,7 @@ describe('putCard', () => {
     mockCards = [{id:1, name:'bob', list:[1,2,3]}]
     mockDispatch = jest.fn()
 
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+    fetchData = jest.fn().mockImplementation(() => Promise.resolve({
       ok:true,
       json: () => {
         Promise.resolve(mockCards)
@@ -20,7 +20,7 @@ describe('putCard', () => {
   });
 
   it('should be called with the correct params', () => {
-    
+
   });
   
 })
