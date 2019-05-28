@@ -28,7 +28,6 @@ export class Form extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('im here')
     this.props.postCard(this.state);
   }
 
