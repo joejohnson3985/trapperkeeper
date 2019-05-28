@@ -9,7 +9,6 @@ class FormItem extends Component {
     super();
 
     this.state = {
-      empty: true,
       value: '',
       checked: false
     }
@@ -21,23 +20,26 @@ class FormItem extends Component {
 
   populateForm = () => {
     if(this.props.item) {
-      this.setState({ value: this.props.item})
-    } 
+      this.setState({ value: this.props.item, id: this.props.list_id})
+    } else {
+      this.setState({id: Date.now()})
+    }
   }
 
   handleChange = (e) => {
     const { value } = e.target;
-    if (this.state.empty) {
-      this.setState({ value, empty: false })
-      this.props.addFormItem({value, checked: this.state.checked});
-    } else {
-      this.setState({ value });
-    }
+    this.setState({ value });
   }
 
   toggleCheckBox = (e) => {
     const checked = !this.state.checked;
     this.setState({ checked });
+  }
+
+  handleKeypress = (e) => {
+    if(e.key === 'Enter') {
+      this.props.handleItemSubmit({ list_id: this.state.id, item: this.state.value, checked: this.state.checked });
+    }
   }
 
   render() {
@@ -61,6 +63,7 @@ class FormItem extends Component {
           className='item-text'
           type='text'
           onChange={this.handleChange}
+          onKeyPress={this.handleKeypress}
           placeholder='List item'
           value={value}
           contentEditable={true}

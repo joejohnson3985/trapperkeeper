@@ -3,11 +3,7 @@ import './_Form.scss';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import FormItem from '../FormItem';
-import { setCurrentCard } from '../../actions';
-// import trash from '../../media/icons/delete.svg';
-// import trashOutline from '../../media/icons/delete_outline.svg';
-import { createCard } from '../../actions';
-import { fetcherPoster } from '../../fetches/fetcher'
+import postCard from '../../thunks/postCard';
 
 
 export class Form extends Component {
@@ -15,30 +11,44 @@ export class Form extends Component {
     super();
     this.state = {
       name: '',
+      item: '',
       list: []
     }
   }
 
-  // componentDidMount() {
-  //   this.populateForm()
-  // }
+  componentDidMount() {
+    const {cardData} = this.props;
+    cardData && this.populateForm(cardData);
+  }
 
-  // populateForm = () => {
-  //   if(this.props.currentCard.name) {
-  //     const {name, list} = this.props.currentCard
-  //     this.setState({ name: name, list: list })
-  //   } 
-  // }
+  populateForm = (data) => {
+    const {name, list} = data;
+    this.setState({name, list}); 
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    fetcherPoster(this.state).then(result => this.props.createCard(result))
-    this.setState({name: ''})
+    this.props.postCard(this.state);
+  }
+
+  handleItemSubmit = (item) => {
+    const { list } = this.state
+    const itemToEdit = list.find(listItem => listItem.list_id === item.list_id)
+    const indexToEdit = list.indexOf(itemToEdit)
+    if(indexToEdit !== -1) {
+      this.updateFormItem(item, indexToEdit)
+    } else {
+      this.addFormItem(item)
+    }
   }
 
   addFormItem = (item) => {
     const list = [...this.state.list, item];
-    this.setState({list});
+    this.setState({list, item: ''});
+  }
+
+  updateFormItem = (item, index) => {
+    this.state.list.splice(index, 1, item)
   }
 
   handleChange = (e) => {
@@ -50,16 +60,26 @@ export class Form extends Component {
     this.props.setCard({})
   }
 
-  render() {
+  displayExisitingItems = () => {
     let items;
     if (this.state.list.length) {
-      items = this.state.list.map(item => {
-        return <FormItem addFormItem={this.addFormItem} {...item} key={item.list_id}/>;
-      });
+      items = this.state.list.map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>);
     }
+    return items
+  }
+
+  handleItemChange = (e) => {
+    const { value } = e.target;
+    this.setState({ item: value });
+    if(e.key === 'Enter') {
+      this.handleItemSubmit({ list_id: Date.now(), item: this.state.item, checked: false })
+    }
+  }
+
+  render() {
     return (
       <div className='overlay'>
-        <form onSubmit={this.handleSubmit} className='Form'>
+        <form className='Form'>
           <input 
             type='text'
             placeholder='Add Title'
@@ -68,9 +88,16 @@ export class Form extends Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
-        <FormItem addFormItem={this.addFormItem} />
-        {items}
-        <button onSubmit={this.handleSubmit}>Save Card</button>
+        {this.displayExisitingItems()}
+        <input 
+          className='item-text'
+          type='text'
+          onChange={this.handleItemChange}
+          onKeyPress={this.handleItemChange}
+          placeholder='List item'
+          value={this.state.item}
+          contentEditable={true}
+        />
         <Link to='/' onClick={this.clearCurrent} className='home-button'>Home</Link>
       </form>
       </div>
@@ -78,13 +105,8 @@ export class Form extends Component {
   }
 }
 
-export const mapStateToProps = (state) => ({
-  currentCard: state.currentCard
-})
-
-export const mapDispatchToProps = (dispatch) => ({
-  setCard: (card) => dispatch(setCurrentCard(card)),
-  createCard: (card) => dispatch(createCard(card))
+const mapDispatchToProps = (dispatch) => ({
+  postCard: (card) => dispatch(postCard(card))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(null, mapDispatchToProps)(Form);
