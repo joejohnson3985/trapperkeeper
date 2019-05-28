@@ -58,7 +58,7 @@ class FormItem extends Component {
     const plus = <img className='icon add' src={add} alt='Add item' />
     const prevIcon = value.length ? boxIcon : plus;
     return (
-      <div className='FormItem'>
+      <div className='FormItem' id={this.props.list_id}>
         {prevIcon}
         <input 
           className={`item-text ${checked && 'checked-item'}`}
@@ -69,7 +69,7 @@ class FormItem extends Component {
           value={value}
           contentEditable={true}
         />
-        <img className='icon clear' src={clear} alt='Clear item' />
+        <img onClick={()=> this.props.removeItem(this.props.list_id)} className='icon clear' src={clear} alt='Clear item' />
       </div>
     );  
   }

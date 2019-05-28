@@ -41,6 +41,13 @@ export class Form extends Component {
     }
   }
 
+  removeItem = (id) => {
+    const list = this.state.list.filter(listItem => {
+      return listItem.list_id !== id
+    })
+    this.setState({ list })
+  }
+
   addFormItem = (item) => {
     const list = [...this.state.list, item];
     this.setState({list, item: ''});
@@ -69,8 +76,8 @@ export class Form extends Component {
     let items;
     let completedItems;
     if (this.state.list.length) {
-      completedItems = this.state.list.filter(item => item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>)
-      items = this.state.list.filter(item => !item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/> )
+      completedItems = this.state.list.filter(item => item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} removeItem={this.removeItem} key={item.list_id}/>)
+      items = this.state.list.filter(item => !item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} removeItem={this.removeItem} {...item} key={item.list_id}/> )
     }
 
     return (
