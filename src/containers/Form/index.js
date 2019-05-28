@@ -42,6 +42,13 @@ export class Form extends Component {
     }
   }
 
+  removeItem = (id) => {
+    const list = this.state.list.filter(listItem => {
+      return listItem.list_id !== id
+    })
+    this.setState({ list })
+  }
+
   addFormItem = (item) => {
     const list = [...this.state.list, item];
     this.setState({list, item: ''});
@@ -72,7 +79,12 @@ export class Form extends Component {
   render() {
     let items;
     if (this.state.list.length) {
-      items = this.state.list.map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>);
+      items = this.state.list.map(item => {
+        return <FormItem handleItemSubmit={this.handleItemSubmit} 
+                         {...item} 
+                         key={item.list_id}
+                         removeItem={this.removeItem}/>
+      });
     }
     return (
       <div className='overlay'>
