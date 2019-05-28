@@ -11,13 +11,13 @@ const Card = (props) => {
   console.log(list.length)
 
   return(
-    <Link className='card' to={cardRoute}>
-      <h1>{name}</h1>
-      <p>items: {list.length}</p>
-      <Link to='/'>
-        <img onClick={() => props.deleteCard(id)} src={trash} alt='Delete card' />
+    <div className='card-outline'>
+      <Link className='card' to={cardRoute}>
+        <h1>{name}</h1>
+        <p>items: {list.length}</p>
       </Link>
-    </Link>
+      <img className='delete-btn' onClick={(e) => props.deleteCard(id)} src={trash} alt='Delete card' />
+    </div>
   )
 }
 
