@@ -7,7 +7,7 @@ export const cardsReducer = (state=[], action) => {
     case 'REMOVE_CARD':
       return state.filter(card => card.id !== action.id);
     case 'UPDATE_CARD':
-      const index = state.findIndex(card => card.id == action.id);
+      const index = state.findIndex(card => card.id === action.id);
       state[index] = action.card;
       return state;
     default:
