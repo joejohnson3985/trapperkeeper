@@ -5,7 +5,11 @@ export const cardsReducer = (state=[], action) => {
     case 'CREATE_CARD':
       return [...state, action.card];
     case 'REMOVE_CARD':
-      return state.filter(card => card.id !== action.id);
+      return state.filter(card => {
+        console.log(typeof card.id)
+        console.log(typeof action.id)
+        return card.id !== action.id
+      });
     case 'UPDATE_CARD':
       const index = state.findIndex(card => card.id == action.id);
       state[index] = action.card;
