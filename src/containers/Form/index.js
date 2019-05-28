@@ -48,17 +48,14 @@ export class Form extends Component {
   }
 
   updateFormItem = (item, index) => {
-    this.state.list.splice(index, 1, item)
+    let list = this.state.list
+    list.splice(index, 1, item)
+    this.setState({list})
   }
 
   handleChange = (e) => {
     const { name, value } = e.target
     this.setState({[name]: value})
-  }
-
-  clearCurrent = () => {
-    // this.handleItemSubmit()
-    this.props.setCard({})
   }
 
   handleItemChange = (e) => {
@@ -71,9 +68,12 @@ export class Form extends Component {
 
   render() {
     let items;
+    let completedItems;
     if (this.state.list.length) {
-      items = this.state.list.map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>);
+      completedItems = this.state.list.filter(item => item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>)
+      items = this.state.list.filter(item => !item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/> )
     }
+
     return (
       <div className='overlay'>
         <form className='Form'>
@@ -95,7 +95,8 @@ export class Form extends Component {
           value={this.state.item}
           contentEditable={true}
         />
-        <Link to='/' onClick={this.clearCurrent} className='home-button'>Home</Link>
+        {completedItems}
+        <Link to='/' className='home-button'>Home</Link>
         {/* <button onSubmit={this.handleSubmit}>save</button> */}
       </form>
       </div>
