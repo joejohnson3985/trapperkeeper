@@ -9,7 +9,6 @@ class FormItem extends Component {
     super();
 
     this.state = {
-      empty: true,
       value: '',
       checked: false
     }
@@ -40,9 +39,6 @@ class FormItem extends Component {
   handleKeypress = (e) => {
     if(e.key === 'Enter') {
       this.props.handleItemSubmit({ list_id: this.state.id, item: this.state.value, checked: this.state.checked });
-    }
-    if(e.key === 'Enter' && !this.props.item) {
-      this.setState({value: ''})
     }
   }
 
