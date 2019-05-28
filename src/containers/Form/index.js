@@ -19,16 +19,16 @@ export class Form extends Component {
     }
   }
 
-  componentDidMount() {
-    this.populateForm()
-  }
+  // componentDidMount() {
+  //   this.populateForm()
+  // }
 
-  populateForm = () => {
-    if(this.props.currentCard.name) {
-      const {name, list} = this.props.currentCard
-      this.setState({ name: name, list: list })
-    } 
-  }
+  // populateForm = () => {
+  //   if(this.props.currentCard.name) {
+  //     const {name, list} = this.props.currentCard
+  //     this.setState({ name: name, list: list })
+  //   } 
+  // }
 
   handleSubmit = (e) => {
     e.preventDefault();
