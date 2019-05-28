@@ -28,4 +28,12 @@ describe('fetchData', () => {
     const result = await fetchData(mockUrl, mockOptions)
     expect(result).toEqual(mockCards)
   });
+
+  it('should return an error if sad path is hit', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: false,
+      statusText: 'Really bad error'
+    }))
+    await expect(fetchData()).rejects.toEqual(Error('Really bad error'))
+  })
 })
