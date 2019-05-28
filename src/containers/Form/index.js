@@ -11,6 +11,7 @@ class Form extends Component {
     super();
     this.state = {
       name: '',
+      item: '',
       list: []
     }
   }
@@ -43,7 +44,7 @@ class Form extends Component {
 
   addFormItem = (item) => {
     const list = [...this.state.list, item];
-    this.setState({list});
+    this.setState({list, item: ''});
   }
 
   updateFormItem = (item, index) => {
@@ -64,7 +65,15 @@ class Form extends Component {
     if (this.state.list.length) {
       items = this.state.list.map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>);
     }
-    return <div>{items}<FormItem handleItemSubmit={this.handleItemSubmit}/></div>
+    return items
+  }
+
+  handleItemChange = (e) => {
+    const { value } = e.target;
+    this.setState({ item: value });
+    if(e.key === 'Enter') {
+      this.handleItemSubmit({ list_id: Date.now(), item: this.state.item, checked: false })
+    }
   }
 
   render() {
@@ -80,6 +89,15 @@ class Form extends Component {
             onChange={this.handleChange}
           />
         {this.displayExisitingItems()}
+        <input 
+          className='item-text'
+          type='text'
+          onChange={this.handleItemChange}
+          onKeyPress={this.handleItemChange}
+          placeholder='List item'
+          value={this.state.item}
+          contentEditable={true}
+        />
         <Link to='/' onClick={this.clearCurrent} className='home-button'>Home</Link>
       </form>
       </div>
