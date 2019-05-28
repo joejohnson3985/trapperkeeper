@@ -20,7 +20,7 @@ class FormItem extends Component {
 
   populateForm = () => {
     if(this.props.item) {
-      this.setState({ value: this.props.item, id: this.props.list_id})
+      this.setState({ value: this.props.item, id: this.props.list_id, checked: this.props.checked})
     } else {
       this.setState({id: Date.now()})
     }
@@ -33,7 +33,9 @@ class FormItem extends Component {
 
   toggleCheckBox = () => {
     const checked = !this.state.checked;
-    this.setState({ checked });
+    this.setState({ checked }, () => {
+      this.props.handleItemSubmit({ list_id: this.state.id, item: this.state.value, checked: this.state.checked });
+    });
   }
 
   handleKeypress = (e) => {
@@ -50,7 +52,6 @@ class FormItem extends Component {
       className='icon check-box' 
       role='checkbox' 
       aria-checked={checked}
-      checked={checked} 
       src={checked ? checkedBox : box} 
       alt='Checkbox' 
     />;
@@ -60,7 +61,7 @@ class FormItem extends Component {
       <div className='FormItem' id={this.props.list_id}>
         {prevIcon}
         <input 
-          className='item-text'
+          className={`item-text ${checked && 'checked-item'}`}
           type='text'
           onChange={this.handleChange}
           onKeyPress={this.handleKeypress}
