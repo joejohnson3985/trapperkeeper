@@ -11,7 +11,7 @@ export const cardsReducer = (state=[], action) => {
         return card.id !== action.id
       });
     case 'UPDATE_CARD':
-      const index = state.findIndex(card => card.id == action.id);
+      const index = state.findIndex(card => card.id === action.id);
       state[index] = action.card;
       return state;
     default:
