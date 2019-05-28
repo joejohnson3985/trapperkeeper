@@ -8,7 +8,12 @@ export const createCard = (card) => ({
   card
 })
 
-export const deleteCard = (id) => ({
-  type: 'DELETE_CARD',
+export const updateCard = (card) => ({
+  type: 'UPDATE_CARD',
+  card
+})
+
+export const removeCard = (id) => ({
+  type: 'REMOVE_CARD',
   id
 })
