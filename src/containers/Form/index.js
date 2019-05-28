@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './_Form.scss';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
-import FormItem from '../FormItem';
+import FormItem from '../../components/FormItem/index';
 import postCard from '../../thunks/postCard';
 
 
-class Form extends Component {
+export class Form extends Component {
   constructor() {
     super();
     this.state = {
@@ -57,15 +57,8 @@ class Form extends Component {
   }
 
   clearCurrent = () => {
+    // this.handleItemSubmit()
     this.props.setCard({})
-  }
-
-  displayExisitingItems = () => {
-    let items;
-    if (this.state.list.length) {
-      items = this.state.list.map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>);
-    }
-    return items
   }
 
   handleItemChange = (e) => {
@@ -77,6 +70,10 @@ class Form extends Component {
   }
 
   render() {
+    let items;
+    if (this.state.list.length) {
+      items = this.state.list.map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>);
+    }
     return (
       <div className='overlay'>
         <form className='Form'>
@@ -88,7 +85,7 @@ class Form extends Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
-        {this.displayExisitingItems()}
+        {items}
         <input 
           className='item-text'
           type='text'
@@ -99,6 +96,7 @@ class Form extends Component {
           contentEditable={true}
         />
         <Link to='/' onClick={this.clearCurrent} className='home-button'>Home</Link>
+        {/* <button onSubmit={this.handleSubmit}>save</button> */}
       </form>
       </div>
     );  

@@ -31,7 +31,7 @@ class FormItem extends Component {
     this.setState({ value });
   }
 
-  toggleCheckBox = (e) => {
+  toggleCheckBox = () => {
     const checked = !this.state.checked;
     this.setState({ checked });
   }
