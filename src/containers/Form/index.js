@@ -26,8 +26,7 @@ export class Form extends Component {
     this.setState({name, list}); 
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit = () => {
     this.props.postCard(this.state);
   }
 
@@ -97,7 +96,7 @@ export class Form extends Component {
         />
         {completedItems}
         <Link to='/' className='home-button'>Home</Link>
-        {/* <button onSubmit={this.handleSubmit}>save</button> */}
+        <div onClick={() => this.handleSubmit()}>save</div>
       </form>
       </div>
     );  

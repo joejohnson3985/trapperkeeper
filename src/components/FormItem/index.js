@@ -61,7 +61,7 @@ class FormItem extends Component {
       <div className='FormItem'>
         {prevIcon}
         <input 
-          className='item-text'
+          className={`item-text ${checked && 'checked-item'}`}
           type='text'
           onChange={this.handleChange}
           onKeyPress={this.handleKeypress}
