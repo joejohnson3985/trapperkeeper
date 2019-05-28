@@ -11,9 +11,7 @@ export const deleteCard = (id) => {
           'Content-Type': 'application/json'
         }
       }
-      console.log(url)
       await fetchData(url, options);
-      console.log('delete card')
       dispatch(removeCard(id));
     } catch (error) {
       console.log(error)
