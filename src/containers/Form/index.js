@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import FormItem from '../../components/FormItem/index';
 import postCard from '../../thunks/postCard';
+import putCard from '../../thunks/putCard';
 import deleteCard from '../../thunks/deleteCard';
 import trash from '../../media/icons/delete_outline.svg';
 
@@ -29,7 +30,12 @@ export class Form extends Component {
   }
 
   handleSubmit = () => {
-    this.props.postCard(this.state);
+    if(this.state.id) {
+      this.props.putCard(this.state)
+    } else {
+      this.props.postCard(this.state);
+    }
+    this.props.updateAll()
   }
 
   handleItemSubmit = (item) => {
@@ -105,8 +111,8 @@ export class Form extends Component {
           contentEditable={true}
         />
         {completedItems}
+        <Link to='/' onClick={this.handleSubmit} className='home-button'>Save</Link>
         <Link to='/' className='home-button'>Home</Link>
-        <div onClick={() => this.handleSubmit()}>save</div>
         {deleteBtn}
       </form>
       </div>
@@ -116,6 +122,7 @@ export class Form extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   postCard: (card) => dispatch(postCard(card)),
+  putCard: (card) => dispatch(putCard(card)),
   deleteCard: (id) => dispatch(deleteCard(id))
 });
 
