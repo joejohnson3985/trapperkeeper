@@ -35,6 +35,7 @@ export class Form extends Component {
     } else {
       this.props.postCard(this.state);
     }
+    this.props.updateAll()
   }
 
   handleItemSubmit = (item) => {
