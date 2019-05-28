@@ -1,7 +1,7 @@
-import { cardReducer } from './cardReducer'
+import { cardsReducer } from './cardsReducer'
 import * as actions from '../actions/index'
 
-describe('cardReducer', () => {
+describe('cardsReducer', () => {
 
   it('Should have default state', () => {
     const outcome = [];
