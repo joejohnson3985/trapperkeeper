@@ -28,8 +28,7 @@ export class Form extends Component {
     this.setState({id, name, list}); 
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
+  handleSubmit = () => {
     this.props.postCard(this.state);
   }
 
@@ -42,6 +41,13 @@ export class Form extends Component {
     } else {
       this.addFormItem(item)
     }
+  }
+
+  removeItem = (id) => {
+    const list = this.state.list.filter(listItem => {
+      return listItem.list_id !== id
+    })
+    this.setState({ list })
   }
 
   addFormItem = (item) => {
@@ -73,8 +79,8 @@ export class Form extends Component {
     const deleteBtn = this.props.cardData && <Link to='/' onClick={() => this.props.deleteCard(this.props.cardData.id)} ><img src={trash} alt='Delete card' /></Link>
     let completedItems;
     if (this.state.list.length) {
-      completedItems = this.state.list.filter(item => item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/>)
-      items = this.state.list.filter(item => !item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} key={item.list_id}/> )
+      completedItems = this.state.list.filter(item => item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} {...item} removeItem={this.removeItem} key={item.list_id}/>)
+      items = this.state.list.filter(item => !item.checked).map(item => <FormItem handleItemSubmit={this.handleItemSubmit} removeItem={this.removeItem} {...item} key={item.list_id}/> )
     }
 
     return (
@@ -100,8 +106,8 @@ export class Form extends Component {
         />
         {completedItems}
         <Link to='/' className='home-button'>Home</Link>
+        <div onClick={() => this.handleSubmit()}>save</div>
         {deleteBtn}
-        {/* <button onSubmit={this.handleSubmit}>save</button> */}
       </form>
       </div>
     );  

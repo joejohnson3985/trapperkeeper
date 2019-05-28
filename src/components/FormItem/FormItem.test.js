@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 describe('FormItem', () => {
   let wrapper;
   let mockFunc = jest.fn()
-  let mockItem = {item:'do the dishes'}
+  let mockItem = {list_id:1, item:'do the dishes'}
 
   beforeEach(() => {
     wrapper = shallow(
