@@ -29,11 +29,21 @@ describe('fetchData', () => {
     expect(result).toEqual(mockCards)
   });
 
+  it("should return null if the statusText is 'No Content'", async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      statusText: 'No Content'
+    }))
+    const result = await fetchData(mockUrl)
+    expect(result).toEqual(null)
+  });
+
   it('should return an error if sad path is hit', async () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: false,
       statusText: 'Really bad error'
     }))
     await expect(fetchData()).rejects.toEqual(Error('Really bad error'))
-  })
+  });
+  
 })
