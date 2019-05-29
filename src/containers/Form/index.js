@@ -95,6 +95,7 @@ export class Form extends Component {
         <form className='Form'>
           <input 
             type='text'
+            className='title'
             placeholder='Add Title'
             id='new-title-input'
             name='name'
@@ -112,8 +113,10 @@ export class Form extends Component {
           contentEditable={true}
         />
         {completedItems}
-        <Link to='/' onClick={this.handleSubmit} className='home-button'>Save</Link>
-        <Link to='/' className='home-button'>Home</Link>
+        <div className='card-actions'>
+          <Link to='/' onClick={this.handleSubmit} className='home-button'>Save</Link>
+          <Link to='/' className='home-button'>Home</Link>
+        </div>
         {deleteBtn}
       </form>
       </div>

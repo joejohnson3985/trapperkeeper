@@ -22,8 +22,7 @@ describe('FormItem', () => {
   it('should have default state', () => {
     expect(wrapper.state()).toEqual({
       value:'do the dishes',
-      id:1,
-      checked: false
+      id:1
     })
   });
 

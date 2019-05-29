@@ -8,6 +8,7 @@ exports[`Form Component should have a snapshot 1`] = `
     className="Form"
   >
     <input
+      className="title"
       id="new-title-input"
       name="name"
       onChange={[Function]}
@@ -48,19 +49,23 @@ exports[`Form Component should have a snapshot 1`] = `
       list_id={231312}
       removeItem={[Function]}
     />
-    <Link
-      className="home-button"
-      onClick={[Function]}
-      to="/"
+    <div
+      className="card-actions"
     >
-      Save
-    </Link>
-    <Link
-      className="home-button"
-      to="/"
-    >
-      Home
-    </Link>
+      <Link
+        className="home-button"
+        onClick={[Function]}
+        to="/"
+      >
+        Save
+      </Link>
+      <Link
+        className="home-button"
+        to="/"
+      >
+        Home
+      </Link>
+    </div>
     <Link
       onClick={[Function]}
       to="/"

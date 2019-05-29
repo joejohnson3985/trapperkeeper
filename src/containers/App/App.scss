@@ -3,3 +3,7 @@
 body {
   background-color: $plain-background
 }
+
+::placeholder {
+  color: $accent-color;
+}

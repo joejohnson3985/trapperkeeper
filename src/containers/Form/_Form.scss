@@ -17,7 +17,7 @@
 
 .Form {
   background-color: white;
-  padding: 45px;
+  padding: 45px 45px 10px 45px;
   display: block;
   width: 50%;
   border: 1px solid #BBBBBB;
@@ -28,8 +28,17 @@
     position: relative;
   }
 
+  .title {
+    font-size: 26px;
+    border: none;
+    border-bottom: 3px solid $secondary-color;
+    color: $secondary-color;
+  }
+
   .item-text {
     padding: 5px 45px 5px 53px;
+    color: $secondary-color;
+    font-size: 16px;
     margin: 0;
     border: 0;
     font-weight: bold;
@@ -45,7 +54,9 @@
   }
 
   .checked-item {
-    color: $primary-color
+    color: $primary-color;
+    font-weight: normal;
+    text-decoration: line-through;
   }
 
   .clear {
@@ -63,4 +74,25 @@
 
 .icon {
   width: 18px;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 10px; 
+}
+
+.home-button {
+  background-color: $secondary-color;
+  color: white;
+  text-decoration: none;
+  padding: 5px 0;
+  text-align: center;
+  width: 40%;
+  font-size: 20px;
+
+  &:hover {
+    background-color: $accent-color;
+  } 
 }
