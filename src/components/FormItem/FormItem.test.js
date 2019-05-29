@@ -22,8 +22,24 @@ describe('FormItem', () => {
   it('should have default state', () => {
     expect(wrapper.state()).toEqual({
       value:'do the dishes',
+      id:1,
       checked: false
     })
+  });
+
+  it('should change the state of checked when toggleCheckBox is called', () => {
+    wrapper.instance().toggleCheckBox()
+    expect(wrapper.state('checked')).toEqual(true)
+  });
+
+  it('should set value in state when handleChange is called', () => {
+    let mockEvent = {target: {value: 'pie'}}
+    wrapper.instance().handleChange(mockEvent)
+    expect(wrapper.state('value')).toEqual('pie')
+  });
+
+  it('should setstate for value id and checked if prop exists and populateForm is called', () => {
+
   });
 })
 

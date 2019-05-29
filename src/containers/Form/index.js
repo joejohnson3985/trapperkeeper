@@ -120,7 +120,7 @@ export class Form extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   postCard: (card) => dispatch(postCard(card)),
   putCard: (card) => dispatch(putCard(card)),
   deleteCard: (id) => dispatch(deleteCard(id))

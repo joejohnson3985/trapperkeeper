@@ -20,7 +20,7 @@ class FormItem extends Component {
 
   populateForm = () => {
     if(this.props.item) {
-      this.setState({ value: this.props.item, id: this.props.list_id, checked: this.props.checked})
+      this.setState({ value: this.props.item, id: this.props.list_id, checked: this.state.checked})
     } else {
       this.setState({id: Date.now()})
     }

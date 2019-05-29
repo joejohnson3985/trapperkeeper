@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should match the snapshot 1`] = `
+<div
+  className="card-outline"
+>
+  <Link
+    className="card"
+    to="/notes/1"
+  >
+    <h1>
+      Chores
+    </h1>
+    <p>
+      items: 
+      3
+    </p>
+  </Link>
+  <img
+    alt="Delete card"
+    className="delete-btn"
+    onClick={[Function]}
+    src="delete_outline.svg"
+  />
+</div>
+`;
