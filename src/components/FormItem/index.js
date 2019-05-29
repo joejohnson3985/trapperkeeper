@@ -3,6 +3,8 @@ import add from '../../media/icons/add.svg';
 import box from '../../media/icons/check_box_blank.svg';
 import checkedBox from '../../media/icons/check_box.svg';
 import clear from '../../media/icons/clear.svg';
+import PropTypes from 'prop-types';
+
 
 class FormItem extends Component {
   constructor() {
@@ -74,5 +76,13 @@ class FormItem extends Component {
     );  
   }
 }
+
+FormItem.propTypes = {
+  checked: PropTypes.bool,
+  handleItemSubmit: PropTypes.func,
+  removeItem: PropTypes.func,
+  list_id: PropTypes.number,
+  item: PropTypes.string
+};
 
 export default FormItem;
