@@ -1,3 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form Component should have a snapshot 1`] = `undefined`;
+exports[`Form Component should have a snapshot 1`] = `
+<div
+  className="overlay"
+>
+  <form
+    className="Form"
+  >
+    <input
+      id="new-title-input"
+      name="name"
+      onChange={[Function]}
+      placeholder="Add Title"
+      type="text"
+      value="Grocery List"
+    />
+    <FormItem
+      checked={false}
+      handleItemSubmit={[Function]}
+      item="Coke"
+      key="321312"
+      list_id={321312}
+      removeItem={[Function]}
+    />
+    <input
+      className="item-text"
+      contentEditable={true}
+      onChange={[Function]}
+      onKeyPress={[Function]}
+      placeholder="List item"
+      type="text"
+      value=""
+    />
+    <FormItem
+      checked={true}
+      handleItemSubmit={[Function]}
+      item="Pop"
+      key="123123"
+      list_id={123123}
+      removeItem={[Function]}
+    />
+    <FormItem
+      checked={true}
+      handleItemSubmit={[Function]}
+      item="Soda"
+      key="231312"
+      list_id={231312}
+      removeItem={[Function]}
+    />
+    <Link
+      className="home-button"
+      onClick={[Function]}
+      to="/"
+    >
+      Save
+    </Link>
+    <Link
+      className="home-button"
+      to="/"
+    >
+      Home
+    </Link>
+    <Link
+      onClick={[Function]}
+      to="/"
+    >
+      <img
+        alt="Delete card"
+        src="delete_outline.svg"
+      />
+    </Link>
+  </form>
+</div>
+`;

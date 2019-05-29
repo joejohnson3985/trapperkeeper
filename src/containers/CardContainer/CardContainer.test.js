@@ -8,19 +8,13 @@ describe('CardContainer', () => {
 
     beforeEach(()=> {
       wrapper = shallow(
-        <CardContainer />
+        <CardContainer cards={[{},{}]}/>
       )
     })
 
     it('should match the snapshot', () => {
       expect(wrapper).toMatchSnapshot();    
     });
-
-    it('should have default state', () => {
-      expect(wrapper.state()).toEqual({
-        update: false
-      })
-    })
   })
 
   describe('mapStateToProps', () => {

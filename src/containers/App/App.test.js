@@ -11,7 +11,7 @@ describe('App', () => {
 
     beforeEach(() => {
       wrapper = shallow(
-        <App />
+        <App getCards={jest.fn()}/>
       )
     })
 
