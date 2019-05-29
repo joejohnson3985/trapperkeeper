@@ -8,20 +8,24 @@ exports[`Form Component should have a snapshot 1`] = `
     className="Form"
   >
     <input
-      className="title"
       id="new-title-input"
       name="name"
       onChange={[Function]}
       placeholder="Add Title"
       type="text"
-      value="Grocery List"
+
+      value="chores"
     />
     <FormItem
-      checked={false}
       handleItemSubmit={[Function]}
-      item="Coke"
-      key="321312"
-      list_id={321312}
+      removeItem={[Function]}
+    />
+    <FormItem
+      handleItemSubmit={[Function]}
+      removeItem={[Function]}
+    />
+    <FormItem
+      handleItemSubmit={[Function]}
       removeItem={[Function]}
     />
     <input
@@ -33,39 +37,6 @@ exports[`Form Component should have a snapshot 1`] = `
       type="text"
       value=""
     />
-    <FormItem
-      checked={true}
-      handleItemSubmit={[Function]}
-      item="Pop"
-      key="123123"
-      list_id={123123}
-      removeItem={[Function]}
-    />
-    <FormItem
-      checked={true}
-      handleItemSubmit={[Function]}
-      item="Soda"
-      key="231312"
-      list_id={231312}
-      removeItem={[Function]}
-    />
-    <div
-      className="card-actions"
-    >
-      <Link
-        className="home-button"
-        onClick={[Function]}
-        to="/"
-      >
-        Save
-      </Link>
-      <Link
-        className="home-button"
-        to="/"
-      >
-        Home
-      </Link>
-    </div>
     <Link
       onClick={[Function]}
       to="/"

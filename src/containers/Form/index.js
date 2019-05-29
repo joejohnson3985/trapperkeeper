@@ -21,7 +21,7 @@ export class Form extends Component {
   }
 
   componentDidMount() {
-    const {cardData} = this.props;
+    const cardData = this.props.cardData;
     cardData && this.populateForm(cardData);
   }
 
