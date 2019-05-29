@@ -20,21 +20,25 @@ describe('Form', () => {
     let mockData;
 
     beforeEach(() => {
-      mockData = {id:1, name:'chores'}
+      mockData = {id:1, name:'chores', list: [1,2,3]}
       wrapper = shallow(
-        <Form cardData={mockData} />
+        <Form cardData={mockData}
+              id={mockData.id}
+              list={mockData.list} />
       )
     });
 
     it('should have a snapshot', () => {
+      console.log(wrapper)
       expect(wrapper).toMatchSnapshot()
     });
 
     it('should have default state', () => {
       expect(wrapper.state()).toEqual({
-        name:'',
+        name:'chores',
         item:'',
-        list:[]
+        id:1,
+        list:[1,2,3]
       })
     });
 
