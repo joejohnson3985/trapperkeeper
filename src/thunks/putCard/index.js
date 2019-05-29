@@ -1,7 +1,7 @@
 import { updateCard } from '../../actions';
 import fetchData from '../fetchData';
 
-export const putCard = (card) => {
+const putCard = (card) => {
   return async (dispatch) =>  {
     try {
       const url = `http://localhost:3000/api/v1/cards/${card.id}`;

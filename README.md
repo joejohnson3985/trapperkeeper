@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Trapper Keeper
 
-## Available Scripts
+Trapper Keeper helps you stay on top of all your tasks. Create to-do lists, edit lists, add and remove items, and mark items complete as knock them out. Checkout out our simplified version of Google Keep.
 
-In the project directory, you can run:
+# Installation
 
-### `npm start`
+This application will use a backend, to access, please [clone down this repo](https://github.com/Rosebud303/backend-trapper-keeper).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Clone** this repo https://github.com/joejohnson3985/trapperkeeper.git and move into it.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+``` git clone https://github.com/joejohnson3985/trapperkeeper.git```
 
-### `npm test`
+``` cd trapperkeeper```
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In the project directory you will need to instal dependencies and start the server, please run:
 
-### `npm run build`
+```npm install```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```npm start```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+npm start will run the app in the development mode. When the server is running, open http://localhost:3001 to view it in the browser.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If any alterations to the code are made, then the page will refresh.
 
-### `npm run eject`
+# Home Page
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![TrapperKeeperHomePage](https://github.com/joejohnson3985/trapperkeeper/blob/master/src/media/Images/cards.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# New Note
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![NewNote](https://github.com/joejohnson3985/trapperkeeper/blob/master/src/media/Images/new.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Edit Note
 
-## Learn More
+![EditNote](https://github.com/joejohnson3985/trapperkeeper/blob/master/src/media/Images/list.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Wire Frame
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![WireFrame](https://github.com/joejohnson3985/trapperkeeper/blob/master/src/media/Images/Wire-Frame.png)
 
-### Code Splitting
+# Tech/Frameworks Used
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* React
+* Sass/Scss
+* JSX
+* fetch API
+* Testing with Enzyme & Jest
+* Express/Node
 
-### Analyzing the Bundle Size
+# Learning Goals 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+We were tasked to build a simplified version of Google Keep. The project required us to put together a complex ui using react, redux, and react router. That frontend application pings an api that we built using node and express.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Contributors
+[Duy Thanh Vu](https://github.com/Rosebud303),
+[Ryan Barnett](https://github.com/RyanDBarnett),
+[Joe Johnson](https://github.com/joejohnson3985)

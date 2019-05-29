@@ -3,14 +3,15 @@ import add from '../../media/icons/add.svg';
 import box from '../../media/icons/check_box_blank.svg';
 import checkedBox from '../../media/icons/check_box.svg';
 import clear from '../../media/icons/clear.svg';
+import PropTypes from 'prop-types';
+
 
 class FormItem extends Component {
   constructor() {
     super();
 
     this.state = {
-      value: '',
-      checked: false
+      value: ''
     }
   }
 
@@ -20,9 +21,9 @@ class FormItem extends Component {
 
   populateForm = () => {
     if(this.props.item) {
-      this.setState({ value: this.props.item, id: this.props.list_id, checked: this.state.checked})
+      this.setState({ value: this.props.item, id: this.props.list_id, checked: this.props.checked})
     } else {
-      this.setState({id: Date.now()})
+      this.setState({id: Date.now(), checked: false})
     }
   }
 
@@ -55,13 +56,19 @@ class FormItem extends Component {
       src={checked ? checkedBox : box} 
       alt='Checkbox' 
     />;
+    let displayChecked;
+    if(checked) {
+      displayChecked = 'item-text checked-item'
+    } else {
+      displayChecked = 'item-text'
+    }
     const plus = <img className='icon add' src={add} alt='Add item' />
     const prevIcon = value.length ? boxIcon : plus;
     return (
       <div className='FormItem' id={this.props.list_id}>
         {prevIcon}
         <input 
-          className={`item-text ${checked && 'checked-item'}`}
+          className={displayChecked}
           type='text'
           onChange={this.handleChange}
           onKeyPress={this.handleKeypress}
@@ -74,5 +81,13 @@ class FormItem extends Component {
     );  
   }
 }
+
+FormItem.propTypes = {
+  checked: PropTypes.bool,
+  handleItemSubmit: PropTypes.func,
+  removeItem: PropTypes.func,
+  list_id: PropTypes.number,
+  item: PropTypes.string
+};
 
 export default FormItem;

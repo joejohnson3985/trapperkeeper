@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import './App.scss';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import getCards from '../../thunks/getCards';
 import Header from '../../components/Header';
 import Form from '../Form';
 import CardContainer from '../CardContainer';
 import NotFound from '../../components/NotFound';
+import './App.scss';
 
-class App extends Component {
+export class App extends Component {
 
   componentDidMount = () => {
     this.props.getCards('http://localhost:3000/api/v1/cards');
@@ -35,6 +36,11 @@ class App extends Component {
     ); 
   }
 }
+
+App.propTypes = {
+  cards: PropTypes.array,
+  getCards: PropTypes.func
+};
 
 export const mapStateToProps = (state) => ({
   cards: state.cards

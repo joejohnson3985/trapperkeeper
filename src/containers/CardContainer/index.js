@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { NavLink } from 'react-router-dom';
 import Card from '../Card/index'
+import PropTypes from 'prop-types';
 import './CardContainer.scss'
 import CreateNew from '../../media/Images/create-new.svg'
-import { NavLink } from 'react-router-dom';
 
 export class CardContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      update: false
-    }
-  }
-
 
   render() {
     const { cards } = this.props 
@@ -29,9 +23,13 @@ export class CardContainer extends Component {
   }
 }
 
+CardContainer.propTypes = {
+  cards: PropTypes.array
+};
+
 export const mapStateToProps = (state) => ({
   cards: state.cards
-})
+});
 
 export default connect(mapStateToProps)(CardContainer)
 

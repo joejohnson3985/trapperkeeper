@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './_Form.scss';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import FormItem from '../../components/FormItem/index';
 import postCard from '../../thunks/postCard';
 import putCard from '../../thunks/putCard';
@@ -94,6 +95,7 @@ export class Form extends Component {
         <form className='Form'>
           <input 
             type='text'
+            className='title'
             placeholder='Add Title'
             id='new-title-input'
             name='name'
@@ -111,14 +113,24 @@ export class Form extends Component {
           contentEditable={true}
         />
         {completedItems}
-        <Link to='/' onClick={this.handleSubmit} className='home-button'>Save</Link>
-        <Link to='/' className='home-button'>Home</Link>
+        <div className='card-actions'>
+          <Link to='/' onClick={this.handleSubmit} className='home-button'>Save</Link>
+          <Link to='/' className='home-button'>Home</Link>
+        </div>
         {deleteBtn}
       </form>
       </div>
     );  
   }
 }
+
+Form.propTypes = {
+  git: PropTypes.bool,
+  cardData: PropTypes.object,
+  postCard: PropTypes.func,
+  putCard: PropTypes.func,
+  deleteCard: PropTypes.func
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   postCard: (card) => dispatch(postCard(card)),

@@ -5,7 +5,7 @@ describe('cardsReducer', () => {
 
   it('Should have default state', () => {
     const outcome = [];
-    const result = cardReducer(undefined, {});
+    const result = cardsReducer(undefined, {});
     expect(result).toEqual(outcome)
   });
 
@@ -16,7 +16,7 @@ describe('cardsReducer', () => {
     ]
     const initialState = []
     const action = actions.setCards(outcome)
-    const result = cardReducer(initialState, action)
+    const result = cardsReducer(initialState, action)
     expect(result).toEqual(outcome)
   });
 
@@ -24,7 +24,7 @@ describe('cardsReducer', () => {
     const outcome = {id:1, name:'Chores'}
     const initialState = []
     const action = actions.createCard(outcome)
-    const result = cardReducer(initialState, action)
+    const result = cardsReducer(initialState, action)
     expect(result).toEqual([outcome])
   });
 

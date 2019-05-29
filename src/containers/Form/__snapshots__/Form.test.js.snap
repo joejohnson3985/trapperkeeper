@@ -13,6 +13,7 @@ exports[`Form Component should have a snapshot 1`] = `
       onChange={[Function]}
       placeholder="Add Title"
       type="text"
+
       value="chores"
     />
     <FormItem
@@ -36,19 +37,6 @@ exports[`Form Component should have a snapshot 1`] = `
       type="text"
       value=""
     />
-    <Link
-      className="home-button"
-      onClick={[Function]}
-      to="/"
-    >
-      Save
-    </Link>
-    <Link
-      className="home-button"
-      to="/"
-    >
-      Home
-    </Link>
     <Link
       onClick={[Function]}
       to="/"
