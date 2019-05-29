@@ -2,7 +2,7 @@ import getCards from './index';
 import fetchData from '../fetchData';
 import * as actions from '../../actions';
 
-describe('putCard', () => {
+describe('getCards', () => {
   let mockUrl;
   let mockCards;
   let mockDispatch;
