@@ -18,7 +18,7 @@ describe('putCard', () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(mockCard)
-    }
+    };
     mockDispatch = jest.fn();
     window.fetch = jest.fn().mockImplementation((mockUrl, mockOptions) => Promise.resolve({
       ok: true,
@@ -35,4 +35,4 @@ describe('putCard', () => {
     await putCard(mockCard)(mockDispatch);
     expect(mockDispatch).toHaveBeenCalledWith(actions.updateCard(mockCard));
   });
-})
+});
