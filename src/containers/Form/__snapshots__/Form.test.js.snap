@@ -8,12 +8,12 @@ exports[`Form Component should have a snapshot 1`] = `
     className="Form"
   >
     <input
+      className="title"
       id="new-title-input"
       name="name"
       onChange={[Function]}
       placeholder="Add Title"
       type="text"
-
       value="chores"
     />
     <FormItem
@@ -37,6 +37,23 @@ exports[`Form Component should have a snapshot 1`] = `
       type="text"
       value=""
     />
+    <div
+      className="card-actions"
+    >
+      <Link
+        className="home-button"
+        onClick={[Function]}
+        to="/"
+      >
+        Save
+      </Link>
+      <Link
+        className="home-button"
+        to="/"
+      >
+        Home
+      </Link>
+    </div>
     <Link
       onClick={[Function]}
       to="/"

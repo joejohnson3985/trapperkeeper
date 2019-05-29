@@ -38,10 +38,9 @@ describe('Form', () => {
     it('should have default state', () => {
       wrapper = shallow(<Form />)
       expect(wrapper.state()).toEqual({
-        name:'chores',
+        name:'',
         item:'',
-        id:1,
-        list:[1,2,3]
+        list:[]
       })
     });
 
