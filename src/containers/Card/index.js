@@ -5,10 +5,9 @@ import './Card.scss';
 import deleteCard from '../../thunks/deleteCard';
 import trash from '../../media/icons/delete_outline.svg';
 
-const Card = (props) => {
+export const Card = (props) => {
   const { id, name, list } = props.card
   const cardRoute = `/notes/${id}`
-  console.log(list.length)
 
   return(
     <div className='card-outline'>
@@ -22,7 +21,7 @@ const Card = (props) => {
 }
 
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   deleteCard: (id) => dispatch(deleteCard(id))
 });
 

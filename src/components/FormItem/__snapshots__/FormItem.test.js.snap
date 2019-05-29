@@ -3,18 +3,18 @@
 exports[`FormItem should match the snapshot 1`] = `
 <div
   className="FormItem"
+  id={1}
 >
   <img
     alt="Checkbox"
     aria-checked={false}
-    checked={false}
     className="icon check-box"
     onClick={[Function]}
     role="checkbox"
     src="check_box_blank.svg"
   />
   <input
-    className="item-text"
+    className="item-text false"
     contentEditable={true}
     onChange={[Function]}
     onKeyPress={[Function]}
@@ -25,6 +25,7 @@ exports[`FormItem should match the snapshot 1`] = `
   <img
     alt="Clear item"
     className="icon clear"
+    onClick={[Function]}
     src="clear.svg"
   />
 </div>

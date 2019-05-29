@@ -36,11 +36,11 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   cards: state.cards
 });
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   getCards: (url) => dispatch(getCards(url))
 });
 

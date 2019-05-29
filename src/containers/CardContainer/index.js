@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Card from '../../components/Card/index'
+import Card from '../Card/index'
 import './CardContainer.scss'
 import CreateNew from '../../media/Images/create-new.svg'
 import { NavLink } from 'react-router-dom';
 
-class CardContainer extends Component {
+export class CardContainer extends Component {
   constructor() {
     super()
     this.state = {
@@ -29,7 +29,7 @@ class CardContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   cards: state.cards
 })
 
