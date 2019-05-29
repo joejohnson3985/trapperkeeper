@@ -20,7 +20,13 @@ describe('Form', () => {
     let mockData;
 
     beforeEach(() => {
-      mockData = {id:1, name:'chores'}
+      mockData = {id: 1, name: 'Grocery List',  list: 
+        [
+          {list_id: 123123, item: 'Pop', checked: true},
+          {list_id: 321312, item: 'Coke', checked: false},
+          {list_id: 231312, item: 'Soda', checked: true}
+        ]
+      }
       wrapper = shallow(
         <Form cardData={mockData} />
       )
@@ -31,6 +37,7 @@ describe('Form', () => {
     });
 
     it('should have default state', () => {
+      wrapper = shallow(<Form />)
       expect(wrapper.state()).toEqual({
         name:'',
         item:'',
