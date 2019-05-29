@@ -7,13 +7,6 @@ import './CardContainer.scss'
 import CreateNew from '../../media/Images/create-new.svg'
 
 export class CardContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      update: false
-    }
-  }
-
 
   render() {
     const { cards } = this.props 
@@ -36,7 +29,7 @@ CardContainer.propTypes = {
 
 export const mapStateToProps = (state) => ({
   cards: state.cards
-})
+});
 
 export default connect(mapStateToProps)(CardContainer)
 
