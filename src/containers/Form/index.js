@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './_Form.scss';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import FormItem from '../../components/FormItem/index';
 import postCard from '../../thunks/postCard';
 import putCard from '../../thunks/putCard';
@@ -119,6 +120,14 @@ export class Form extends Component {
     );  
   }
 }
+
+Form.propTypes = {
+  git: PropTypes.bool,
+  cardData: PropTypes.object,
+  postCard: PropTypes.func,
+  putCard: PropTypes.func,
+  deleteCard: PropTypes.func
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   postCard: (card) => dispatch(postCard(card)),
