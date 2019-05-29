@@ -4,6 +4,8 @@ Trapper Keeper helps you stay on top of all your tasks. Create to-do lists, edit
 
 # Installation
 
+This application will use a backend, to access, please [clone down this repo](https://github.com/Rosebud303/backend-trapper-keeper).
+
 **Clone** this repo https://github.com/joejohnson3985/trapperkeeper.git and move into it.
 
 ``` git clone https://github.com/joejohnson3985/trapperkeeper.git```
