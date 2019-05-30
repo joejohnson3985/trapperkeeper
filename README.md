@@ -18,7 +18,8 @@ In the project directory you will need to instal dependencies and start the serv
 
 ```npm start```
 
-npm start will run the app in the development mode. When the server is running, open http://localhost:3001 to view it in the browser.
+npm start will run the app in the development mode. When the server is running, open http://localhost:3001 to view it in the browser. 
+**IMPORTANT: In order for the application to function the front end must be running on port 3001 and the backend on port 3000**
 
 If any alterations to the code are made, then the page will refresh.
 
