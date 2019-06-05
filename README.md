@@ -52,7 +52,7 @@ If any alterations to the code are made, then the page will refresh.
 
 # Learning Goals 
 
-We were tasked to build a simplified version of Google Keep. The project required us to put together a complex ui using react, redux, and react router. That frontend application pings an api that we built using node and express. Our goals were to become farmiliar with Express and Node and learn how a frontend interacts with that backend. 
+We were tasked to build a simplified version of Google Keep. The project required us to put together a complex UI using react, redux, and react router. That frontend application pings an API that we built using node and express. Our goals were to become familiar with Express and Node and learn how a frontend interacts with that backend. 
 
 # Contributors
 [Duy Thanh Vu](https://github.com/Rosebud303),
