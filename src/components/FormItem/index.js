@@ -45,6 +45,12 @@ class FormItem extends Component {
     }
   }
 
+  handleBlur = () => {
+
+    this.props.handleItemSubmit({ list_id: this.state.id, item: this.state.value, checked: this.state.checked });
+
+  }
+
   render() {
     const {checked, value} = this.state;
     const boxIcon = 
@@ -72,9 +78,10 @@ class FormItem extends Component {
           type='text'
           onChange={this.handleChange}
           onKeyPress={this.handleKeypress}
-          placeholder='List item'
+          placeholder='New List item'
           value={value}
           contentEditable={true}
+          onBlur={this.handleBlur}
         />
         <img onClick={()=> this.props.removeItem(this.props.list_id)} className='icon clear' src={clear} alt='Clear item' />
       </div>
