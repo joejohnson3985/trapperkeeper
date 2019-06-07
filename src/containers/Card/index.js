@@ -6,21 +6,25 @@ import './Card.scss';
 import deleteCard from '../../thunks/deleteCard';
 import trash from '../../media/icons/delete_outline.svg';
 import box from '../../media/icons/check_box_blank.svg';
-import checkedBox from '../../media/icons/check_box.svg';
 
 
 export class Card extends Component {
 
-  displayItems = () => {
+  displayUncheckedItems = () => {
     const { list } = this.props.card
-    return list.map(item => {
+    return list.filter(item => !item.checked).map(item => {
       return (
-        <div className='item'>
-          <img className='icon check-box' src={item.checked ? checkedBox : box} alt='Checkbox' />
+        <div className='item' key={item.id}>
+          <img className='icon check-box' src={box} alt='Checkbox' />
           <p>{item.item}</p>
         </div>
       )
     })
+  }
+
+  completedItems = () => {
+    const { list } = this.props.card
+    return list.filter(item => item.checked).length
   }
 
   render(){
@@ -30,7 +34,8 @@ export class Card extends Component {
       <div className='card-outline'>
         <Link className='card' to={cardRoute}>
           <h1>{name}</h1>
-          {this.displayItems()}
+          {this.displayUncheckedItems()}
+          <p>{this.completedItems()} item(s) completed!</p>
         </Link>
         <img className='delete-btn' onClick={(e) => this.props.deleteCard(id)} src={trash} alt='Delete card' />
       </div>
