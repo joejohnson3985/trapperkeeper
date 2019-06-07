@@ -6,7 +6,6 @@
   background-color: #fff;
   width: 280px;
   margin: 30px;
-  height: 180px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -44,6 +43,6 @@
   .delete-btn {
     position: absolute;
     left: 82%;
-    bottom: 15%;
+    top: 13%;
   }
 }

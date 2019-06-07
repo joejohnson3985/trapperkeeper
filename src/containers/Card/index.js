@@ -12,7 +12,7 @@ export class Card extends Component {
 
   displayUncheckedItems = () => {
     const { list } = this.props.card
-    return list.filter(item => !item.checked).map(item => {
+    let uncheckedToDisplay =  list.filter(item => !item.checked).map(item => {
       return (
         <div className='item' key={item.id}>
           <img className='icon check-box' src={box} alt='Checkbox' />
@@ -20,6 +20,12 @@ export class Card extends Component {
         </div>
       )
     })
+
+    if(uncheckedToDisplay.length) {
+      return uncheckedToDisplay
+    } else {
+      return <p>You've completed every item on this list! Congrats!</p>
+    }
   }
 
   completedItems = () => {
