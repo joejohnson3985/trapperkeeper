@@ -6,12 +6,31 @@
   background-color: #fff;
   width: 280px;
   margin: 30px;
-  height: 180px;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  justify-content: center;
   text-decoration: none;
+
+  p {
+    text-align: center;
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .item {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+
+    img {
+      margin: 4px
+    }
+
+    p {
+      margin: 4px;
+    }
+  }
 
   &:hover {
     box-shadow: 0 0 11px rgba(33,33,33,.2); 
@@ -23,7 +42,7 @@
 
   .delete-btn {
     position: absolute;
-    left: 46%;
-    bottom: 35px;
+    left: 82%;
+    top: 13%;
   }
 }

@@ -11,9 +11,39 @@ exports[`Card component should match the snapshot 1`] = `
     <h1>
       Chores
     </h1>
+    <div
+      className="item"
+    >
+      <img
+        alt="Checkbox"
+        className="icon check-box"
+        src="check_box_blank.svg"
+      />
+      <p />
+    </div>
+    <div
+      className="item"
+    >
+      <img
+        alt="Checkbox"
+        className="icon check-box"
+        src="check_box_blank.svg"
+      />
+      <p />
+    </div>
+    <div
+      className="item"
+    >
+      <img
+        alt="Checkbox"
+        className="icon check-box"
+        src="check_box_blank.svg"
+      />
+      <p />
+    </div>
     <p>
-      items: 
-      3
+      0
+       item(s) completed!
     </p>
   </Link>
   <img
