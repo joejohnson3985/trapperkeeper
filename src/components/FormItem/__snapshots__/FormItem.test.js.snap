@@ -15,9 +15,10 @@ exports[`FormItem should match the snapshot 1`] = `
   <input
     className="item-text"
     contentEditable={true}
+    onBlur={[Function]}
     onChange={[Function]}
     onKeyPress={[Function]}
-    placeholder="List item"
+    placeholder="New List item"
     type="text"
     value="do the dishes"
   />
